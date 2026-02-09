@@ -1,14 +1,13 @@
 using System.ComponentModel.DataAnnotations;
-using MongoDB.Bson;
 
 namespace Projekt_mtg.Models
 {
     public class Card
     {
         //properties - fields in database
-        public ObjectId Id { get; set; }
+        public int Id { get; set; }
 
-        public ObjectId SetId { get; set; }
+        public int SetId { get; set; }
 
         [Required(ErrorMessage = "You must provide a title")]
         public string? Title { get; set; }
