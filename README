@@ -1,1 +1,5 @@
-Packages: MongoDB.EntityFrameworkCore v.10?
+Packages: 
+MongoDB.EntityFrameworkCore v.10?
+MongoDB.Driver
+Microsoft.VisualStudio.Web.CodeGeneration.Design
+aspnet-codegenerator

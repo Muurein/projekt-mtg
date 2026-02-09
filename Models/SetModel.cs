@@ -2,7 +2,7 @@ using MongoDB.Bson;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace Mtg.Models
+namespace Projekt_mtg.Models
 {
     public class Set
     {
@@ -15,7 +15,7 @@ namespace Mtg.Models
         public DateOnly Relase_date { get; set; }
 
         [Required(ErrorMessage = "You must provide if the set is allowed in standard format games")]
-        public bool Is_standard { get; set; }
+        public bool Is_standard { get; set; } 
 
 
     }

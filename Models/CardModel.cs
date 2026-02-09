@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson;
 
-namespace Mtg.Models
+namespace Projekt_mtg.Models
 {
     public class Card
     {

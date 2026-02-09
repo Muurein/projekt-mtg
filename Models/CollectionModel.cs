@@ -2,7 +2,7 @@ using MongoDB.Bson;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace Mtg.Models
+namespace Projekt_mtg.Models
 {
     public class Collection
     {
