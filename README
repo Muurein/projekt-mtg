@@ -1,5 +1,8 @@
 Packages: 
-MongoDB.EntityFrameworkCore v.10?
-MongoDB.Driver
+Microsoft.EntityFrameworkCore.SqlServer
 Microsoft.VisualStudio.Web.CodeGeneration.Design
 aspnet-codegenerator
+
+
+mail: student
+lösen: Passw0rd_

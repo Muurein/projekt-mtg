@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using projekt_mtg.Data;
 using Projekt_mtg.Models;
-using Projekt_mtg.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,15 +13,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false) //ändrar från standard true till false men det är en mer privat applikation och vi har ingen e-post-server att testa mot
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
-// var mongoDBSettings = builder.Configuration.GetSection("MongoDBSettings").Get<MongoDBSettings>();
-// builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDBSettings"));
-
-// builder.Services.AddDbContext<MtgIndexDbContext>(options =>
-// options.UseMongoDB(mongoDBSettings.AtlasURI ?? "", mongoDBSettings.MtgIndex ?? ""));
 
 var app = builder.Build();
 

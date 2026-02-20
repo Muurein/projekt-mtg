@@ -6,7 +6,7 @@ namespace Projekt_mtg.Models
 {
     public class Set
     {
-        public ObjectId Id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "You must provide a name")]
         public string? Name { get; set; }

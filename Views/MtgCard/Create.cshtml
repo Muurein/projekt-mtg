@@ -1,0 +1,112 @@
+@* @model Projekt_mtg.Models.Card *@
+@model Projekt_mtg.Models.ViewModels.CardAndCollectionVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+
+
+<h4>Card</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Card.SetId" class="control-label"></label>
+                <input asp-for="Card.SetId" class="form-control" />
+                <span asp-validation-for="Card.SetId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Title" class="control-label"></label>
+                <input asp-for="Card.Title" class="form-control" />
+                <span asp-validation-for="Card.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Color" class="control-label"></label>
+                <select asp-for="Card.Color" class="form-control">
+                    <option value="white">White</option>
+                    <option value="blue">Blue</option>
+                    <option value="black">Black</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                </select>
+                <span asp-validation-for="Card.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.ManaValue" class="control-label"></label>
+                <input asp-for="Card.ManaValue" class="form-control" />
+                <span asp-validation-for="Card.ManaValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Type" class="control-label"></label>
+                @* <input asp-for="Type" class="form-control" /> *@
+                <select asp-for="Card.Type" class="form-control">
+                    <option value="land">Land</option>
+                    <option value="creature">Creature</option>
+                    <option value="artifact">Artifact</option>
+                    <option value="enchantment">Enchantment</option>
+                    <option value="planeswalker">Planeswalker</option>
+                    <option value="battle">Battle</option>
+                    <option value="instant">Instant</option>
+                    <option value="sorcery">Sorcery</option>
+                </select>
+                <span asp-validation-for="Card.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Description" class="control-label"></label>
+                <input asp-for="Card.Description" class="form-control" />
+                <span asp-validation-for="Card.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Rarity" class="control-label"></label>
+                @* <input asp-for="Rarity" class="form-control" /> *@
+                <select asp-for="Card.Rarity" class="form-control">
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="mythic rare">Mythic Rare</option>
+                    <option value="special">Special</option>
+                    <option value="token">Token</option>
+                    <option value="helper">Helper</option>
+                    <option value="substitute">Substitute</option>
+                </select>
+                <span asp-validation-for="Card.Rarity" class="text-danger"></span>
+            </div>
+            <h4>My Collection</h4>
+
+<div class="form-group">
+    <label asp-for="Status"></label>
+    <select asp-for="Status" class="form-control">
+        <option value="">-- Select status --</option>
+        <option value="Owned">Owned</option>
+        <option value="Wishlist">Wishlist</option>
+        <option value="InDeck">In Deck</option>
+    </select>
+    <span asp-validation-for="Status" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Quantity"></label>
+    <input asp-for="Quantity" type="number" class="form-control" />
+    <span asp-validation-for="Quantity" class="text-danger"></span>
+</div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

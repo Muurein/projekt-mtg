@@ -27,5 +27,8 @@ namespace Projekt_mtg.Models
         [Required(ErrorMessage = "You must provide a level of rarity")]
         public string? Rarity { get; set; }
 
+        //Ett kort kan finnas i flera rader i en collection
+        public ICollection<Collection> Collections { get; set; } = new List<Collection>();
+
     }
 }

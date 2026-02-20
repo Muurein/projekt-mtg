@@ -6,7 +6,7 @@ namespace Projekt_mtg.Models
 {
     public class User
     {
-        public ObjectId Id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "You must provide a username")]
         public string? Username { get; set; }
