@@ -11,11 +11,11 @@ using projekt_mtg.Data;
 
 namespace projekt_mtg.Controllers
 {
-    public class MtgController : Controller
+    public class CollectionController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public MtgController(ApplicationDbContext context)
+        public CollectionController(ApplicationDbContext context)
         {
             _context = context;
         }

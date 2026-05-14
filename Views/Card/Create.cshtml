@@ -1,4 +1,3 @@
-@* @model Projekt_mtg.Models.Card *@
 @model Projekt_mtg.Models.ViewModels.CardAndCollectionVM
 
 @{
@@ -13,19 +12,23 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
+        @* <input id="cardSearch" class="form-control" list="cardSuggestions" />
+
+        <datalist id="cardSuggestions"></datalist> *@
+
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            @* <div class="form-group">
                 <label asp-for="Card.SetId" class="control-label"></label>
                 <input asp-for="Card.SetId" class="form-control" />
                 <span asp-validation-for="Card.SetId" class="text-danger"></span>
-            </div>
+            </div> *@
             <div class="form-group">
-                <label asp-for="Card.Title" class="control-label"></label>
-                <input asp-for="Card.Title" class="form-control" />
-                <span asp-validation-for="Card.Title" class="text-danger"></span>
+                <label asp-for="CardName" class="control-label"></label>
+                <input asp-for="CardName" class="form-control" />
+                <span asp-validation-for="CardName" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @* <div class="form-group">
                 <label asp-for="Card.Color" class="control-label"></label>
                 <select asp-for="Card.Color" class="form-control">
                     <option value="white">White</option>
@@ -43,7 +46,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Card.Type" class="control-label"></label>
-                @* <input asp-for="Type" class="form-control" /> *@
+                <input asp-for="Type" class="form-control" /> 
                 <select asp-for="Card.Type" class="form-control">
                     <option value="land">Land</option>
                     <option value="creature">Creature</option>
@@ -63,7 +66,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Card.Rarity" class="control-label"></label>
-                @* <input asp-for="Rarity" class="form-control" /> *@
+                <input asp-for="Rarity" class="form-control" /> 
                 <select asp-for="Card.Rarity" class="form-control">
                     <option value="common">Common</option>
                     <option value="uncommon">Uncommon</option>
@@ -75,35 +78,35 @@
                     <option value="substitute">Substitute</option>
                 </select>
                 <span asp-validation-for="Card.Rarity" class="text-danger"></span>
-            </div>
-            <h4>My Collection</h4>
+            </div> *@
+    <h4>My Collection</h4>
 
-<div class="form-group">
-    <label asp-for="Status"></label>
-    <select asp-for="Status" class="form-control">
-        <option value="">-- Select status --</option>
-        <option value="Owned">Owned</option>
-        <option value="Wishlist">Wishlist</option>
-        <option value="InDeck">In Deck</option>
-    </select>
-    <span asp-validation-for="Status" class="text-danger"></span>
-</div>
-
-<div class="form-group">
-    <label asp-for="Quantity"></label>
-    <input asp-for="Quantity" type="number" class="form-control" />
-    <span asp-validation-for="Quantity" class="text-danger"></span>
-</div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option value="">-- Select status --</option>
+            <option value="Owned">Owned</option>
+            <option value="Wishlist">Wishlist</option>
+            <option value="InDeck">In Deck</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="form-group">
+        <label asp-for="Quantity"></label>
+        <input asp-for="Quantity" type="number" class="form-control" />
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

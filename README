@@ -6,3 +6,48 @@ aspnet-codegenerator
 
 mail: student
 lösen: Passw0rd_
+
+
+Vill att vyn när man klickar på "My Collection" ska vara Mtg, med info som titel, kvanititet och status synliga. 
+All annan info (color, manaValue, type, description och rarity) ska synas på kortet men inte skrivas ut
+När man söker efter ett kort man dock kunna söka på title, color, manaValue, type, description och rarity (samt status)
+
+Det ska bara finnas en collection per User
+Cards i Collection kan ha status owned, wishlist och in_deck
+Cards som har status wishlist ska synas under sidan Wishlist
+
+Man lägger till ett Card till Collection via formulär
+Med hjälp av CardAndCollectionVM ska man samtidigt kunna fylla i statusen på kortet
+Card-formulär och CardAndCollectionVM-formulär ska med andra ord visas för användaren som ett enda formulär
+
+
+Nästa steg:
+- få över Scryfall API
+- skapa och sätt ihop Card-formuläret och CardAndCollectionVM-formuläret
+- få inloggning att fungera
+
+
+Gjort:
+- databas i SQLite
+- controller för Card (MtgCard)
+- controller för Collection (Mtg)
+- model för Card
+- model för Collection
+- model för Set
+- model för User
+- view för Card (MtgGard)
+- view för Collection (Mtg)
+
+
+
+Ska göras:
+- kalla på Scryfall API
+- sökfunktion på kort i Collection
+- användarinlogging
+- visa kortinfo från Scryfall API
+- kunna lägga till Card i Collection
+- kunna sätta en status på Card i Collection
+- få Scryfall att fylla i alla Card-fält som användaren inte fyller i (kunna känna igen kort-namnet och söta resten liksom)
+- Slå ihop VM med Card och Collection
+
+

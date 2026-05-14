@@ -34,56 +34,56 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Card/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Card/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Card/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Card/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Card/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Collection/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sbGVjdGlvblxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Collection/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sbGVjdGlvblxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Collection/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sbGVjdGlvblxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Collection/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sbGVjdGlvblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Collection/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sbGVjdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Collection/Wishlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sbGVjdGlvblxXaXNobGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/MtgCard/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXRnQ2FyZFxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/MtgCard/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXRnQ2FyZFxEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/MtgCard/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXRnQ2FyZFxEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/MtgCard/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXRnQ2FyZFxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/MtgCard/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXRnQ2FyZFxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Mtg/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXRnXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Mtg/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXRnXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Mtg/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXRnXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Mtg/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXRnXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Mtg/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXRnXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Mtg/Wishlist.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXRnXFdpc2hsaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/amand/OneDrive/Dokument/Webbutvekling 2024-2026/.NET/projekt-mtg/Views/Shared/Error.cshtml]

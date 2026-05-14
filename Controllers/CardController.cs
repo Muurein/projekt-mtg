@@ -9,16 +9,19 @@ using Projekt_mtg.Models;
 using Projekt_mtg.Models.ViewModels;
 using projekt_mtg.Data;
 using System.Security.Claims;
+using Projekt_mtg.Services;
 
 namespace projekt_mtg.Controllers
 {
-    public class MtgCardController : Controller
+    public class CardController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ScryfallService _scryfallService;
 
-        public MtgCardController(ApplicationDbContext context)
+        public CardController(ApplicationDbContext context, ScryfallService scryfallService)
         {
             _context = context;
+            _scryfallService = scryfallService;
         }
 
         // GET: MtgCard
@@ -73,24 +76,67 @@ namespace projekt_mtg.Controllers
                 return View(vm);
             }
 
-                //sparar Card först för att skapa PK Id
-                _context.Cards.Add(vm.Card);
-                await _context.SaveChangesAsync();
+            //hämtar data från Scryfall
+            var scryfallCard = await _scryfallService.GetCardByName(vm.CardName);
 
-                //skapar en rad i Collection
-                var collection = new Collection
-                {
-                    CardId = vm.Card.Id,
-                    UserId = User.FindFirstValue(ClaimTypes.NameIdentifier),
-                    Status = vm.Status,
-                    Quantity = vm.Quantity
-                };
+            if(scryfallCard == null)
+            {
+                ModelState.AddModelError("", "Kortet hittated inte");
+                return View(vm);
+            }
 
-                _context.Collections.Add(collection);
-                await _context.SaveChangesAsync();
+            //skapa kort från API-data
+            var card = new Card
+            {
+                Name = scryfallCard.Name,
+                ManaCost = scryfallCard.ManaCost,
+                TypeLine = scryfallCard.TypeLine,
+                OracleText = scryfallCard.OracleText,
+                Rarity = scryfallCard.Rarity,
+                ImageUrl = scryfallCard.ImageUrl
+            };
 
-                return RedirectToAction("Index"); //(nameof(Index)); istället?
+            _context.Cards.Add(card);
+            await _context.SaveChangesAsync();
+            
+
+            //lägger till i collection
+            var collection = new Collection
+            {
+                CardId = card.Id,
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier),
+                Status = vm.Status,
+                Quantity = vm.Quantity
+            };
+
+            _context.Collections.Add(collection);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+
+                // //sparar Card först för att skapa PK Id
+                // _context.Cards.Add(vm.Card);
+                // await _context.SaveChangesAsync();
+
+                // //skapar en rad i Collection
+                // var collection = new Collection
+                // {
+                //     CardId = vm.Card.Id,
+                //     UserId = User.FindFirstValue(ClaimTypes.NameIdentifier),
+                //     Status = vm.Status,
+                //     Quantity = vm.Quantity
+                // };
+
+                // _context.Collections.Add(collection);
+                // await _context.SaveChangesAsync();
+
+                // return RedirectToAction("Index"); //(nameof(Index)); istället?
            
+        }
+
+        private void SaveChangesAsync()
+        {
+            throw new NotImplementedException();
         }
 
         // GET: MtgCard/Edit/5
@@ -114,7 +160,7 @@ namespace projekt_mtg.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SetId,Title,Color,ManaValue,Type,Description,Rarity")] Card card)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ManaCost,TypeLine,OracleText,Rarity, ImageUrl")] Card card)
         {
             if (id != card.Id)
             {
@@ -180,6 +226,16 @@ namespace projekt_mtg.Controllers
         private bool CardExists(int id)
         {
             return _context.Cards.Any(e => e.Id == id);
+        }
+
+
+        //söker efter kort
+        [HttpGet]
+        public async Task<IActionResult> SearchCardNames(string query)
+        {
+            var results = await _scryfallService.SearchCards(query);
+
+            return Json(results);
         }
     }
 }

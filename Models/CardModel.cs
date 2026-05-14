@@ -7,25 +7,26 @@ namespace Projekt_mtg.Models
         //properties - fields in database
         public int Id { get; set; }
 
-        public int SetId { get; set; }
+        //public int SetId { get; set; }
 
-        [Required(ErrorMessage = "You must provide a title")]
-        public string? Title { get; set; }
+        [Required(ErrorMessage = "You must provide a card name")]
+        public string? Name{ get; set; }
 
-        [Required(ErrorMessage = "You must provide at least one color")]
-        public string? Color { get; set; }
+        //public string? Color { get; set; }
 
-        [Required(ErrorMessage = "You must provide a mana value")]
-        public string? ManaValue { get; set; }
+        public string? ManaCost { get; set; }
 
-        [Required(ErrorMessage = "You must provide a type")]
-        public string? Type { get; set; }
+        public string? TypeLine { get; set; }
 
-        [Required(ErrorMessage = "You must provide a description")]
-        public string? Description { get; set; }
+        //public string? Description { get; set; }
 
-        [Required(ErrorMessage = "You must provide a level of rarity")]
+        public string? OracleText { get; set; }
+
         public string? Rarity { get; set; }
+
+        public string? ImageUrl { get; set; }
+
+        
 
         //Ett kort kan finnas i flera rader i en collection
         public ICollection<Collection> Collections { get; set; } = new List<Collection>();

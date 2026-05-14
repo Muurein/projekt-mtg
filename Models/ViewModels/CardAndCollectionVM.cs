@@ -7,11 +7,15 @@ namespace Projekt_mtg.Models.ViewModels
     public class CardAndCollectionVM
 {
     //Card-data
-    public Card Card { get; set; } = new Card();
+    //public Card Card { get; set; } = new Card();
+    public string CardName { get; set; } = "";
 
 
     //Collection-data
+    //status = owned/wishlist/in deck
     public string Status { get; set; } = "";
+
+    //antal kort
     public int Quantity { get; set; }
 }
 }

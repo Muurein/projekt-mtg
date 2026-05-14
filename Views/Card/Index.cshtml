@@ -12,26 +12,29 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.SetId)
-            </th>
+            </th> *@
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.Color)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.ManaCost)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ManaValue)
+                @Html.DisplayNameFor(model => model.TypeLine)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.OracleText)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Rarity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
             </th>
             <th></th>
         </tr>
@@ -39,26 +42,29 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            @* <td>
                 @Html.DisplayFor(modelItem => item.SetId)
-            </td>
+            </td> *@
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+            @* <td>
                 @Html.DisplayFor(modelItem => item.Color)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.ManaCost)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ManaValue)
+                @Html.DisplayFor(modelItem => item.TypeLine)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.OracleText)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rarity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
