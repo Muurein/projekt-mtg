@@ -24,7 +24,7 @@ namespace Projekt_mtg.Models
 
         public string? Rarity { get; set; }
 
-        public string? ImageUrl { get; set; }
+        public string? ImageUri { get; set; }
 
         
 

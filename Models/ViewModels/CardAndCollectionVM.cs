@@ -10,12 +10,11 @@ namespace Projekt_mtg.Models.ViewModels
     //public Card Card { get; set; } = new Card();
     public string CardName { get; set; } = "";
 
-
     //Collection-data
-    //status = owned/wishlist/in deck
-    public string Status { get; set; } = "";
+    public int OwnedQuantity { get; set; }
 
-    //antal kort
-    public int Quantity { get; set; }
+    public int WishlistQuantity { get; set; }
+
+    public int InDeckQuantity { get; set; }
 }
 }

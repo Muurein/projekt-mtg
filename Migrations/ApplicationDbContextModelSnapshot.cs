@@ -2,20 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using projekt_mtg.Data;
 
 #nullable disable
 
-namespace projekt_mtg.Data.Migrations
+namespace projekt_mtg.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260514165757_UpdateCardModel")]
-    partial class UpdateCardModel
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.3");
@@ -222,7 +219,7 @@ namespace projekt_mtg.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("ImageUri")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ManaCost")
@@ -243,6 +240,9 @@ namespace projekt_mtg.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("Cards");
                 });
 
@@ -255,43 +255,24 @@ namespace projekt_mtg.Data.Migrations
                     b.Property<int>("CardId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int>("InDeckQuantity")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("OwnedQuantity")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("WishlistQuantity")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CardId");
 
                     b.ToTable("Collections");
-                });
-
-            modelBuilder.Entity("Projekt_mtg.Models.Set", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsStandard")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateOnly>("RelaseDate")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Sets");
                 });
 
             modelBuilder.Entity("Projekt_mtg.Models.User", b =>

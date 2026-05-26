@@ -10,13 +10,17 @@ using Projekt_mtg.Models.ViewModels;
 using projekt_mtg.Data;
 using System.Security.Claims;
 using Projekt_mtg.Services;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
 
 namespace projekt_mtg.Controllers
 {
+    [Authorize]
     public class CardController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly ScryfallService _scryfallService;
+        private string? searchString;
 
         public CardController(ApplicationDbContext context, ScryfallService scryfallService)
         {
@@ -25,9 +29,27 @@ namespace projekt_mtg.Controllers
         }
 
         // GET: MtgCard
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Cards.ToListAsync());
+            if(_context.Cards == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Cards' is null");
+            }
+            
+            var cards = from c in _context.Cards 
+                        select c;
+
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                cards = cards.Where(c =>
+                c.Name.ToUpper().Contains(searchString.ToUpper()) ||
+                (c.ManaCost ?? "").ToUpper().Contains(searchString.ToUpper()) ||
+                (c.TypeLine ?? "").ToUpper().Contains(searchString.ToUpper()) ||
+                (c.Rarity ?? "").ToUpper().Contains(searchString.ToUpper())
+                );
+            }
+
+            return View(await cards.ToListAsync()); 
         }
 
         // GET: MtgCard/Details/5
@@ -86,58 +108,62 @@ namespace projekt_mtg.Controllers
             }
 
             //skapa kort från API-data
-            var card = new Card
-            {
-                Name = scryfallCard.Name,
-                ManaCost = scryfallCard.ManaCost,
-                TypeLine = scryfallCard.TypeLine,
-                OracleText = scryfallCard.OracleText,
-                Rarity = scryfallCard.Rarity,
-                ImageUrl = scryfallCard.ImageUrl
-            };
+            //finns redan kortet?
+            var card = await _context.Cards
+                .FirstOrDefaultAsync(c => c.Name == scryfallCard.Name);
 
-            _context.Cards.Add(card);
-            await _context.SaveChangesAsync();
+            //om nej, skapa nytt kort
+            if(card == null)
+            {
+                card = new Card
+                {
+                    Name = scryfallCard.Name,
+                    ManaCost = scryfallCard.ManaCost,
+                    TypeLine = scryfallCard.TypeLine,
+                    OracleText = scryfallCard.OracleText,
+                    Rarity = scryfallCard.Rarity,
+                    ImageUri = scryfallCard.ImageUri
+                };  
+
+                _context.Cards.Add(card);
+                await _context.SaveChangesAsync();
+            }
+
+
+            //lägger till i collection och kollar om ett kort redan finns (om ja, uppdatera collection istället för att skapa en ny rad)
+            var currentCollection = await _context.Collections
+                .FirstOrDefaultAsync(c =>
+                    c.CardId == card.Id &&
+                    c.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+
+            if(currentCollection == null)
+            {
+                var collection = new Collection
+                {
+                    CardId = card.Id,
+                    UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)!, //! = vet att den itne är null
+                    OwnedQuantity = vm.OwnedQuantity,
+                    WishlistQuantity = vm.WishlistQuantity,
+                    InDeckQuantity = vm.InDeckQuantity
+                };
+
+                _context.Collections.Add(collection);
+            }  
+            else
+            {
+                currentCollection.OwnedQuantity += vm.OwnedQuantity;
+                currentCollection.WishlistQuantity += vm.WishlistQuantity;
+                currentCollection.InDeckQuantity += vm.InDeckQuantity;
+
+            }
             
-
-            //lägger till i collection
-            var collection = new Collection
-            {
-                CardId = card.Id,
-                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier),
-                Status = vm.Status,
-                Quantity = vm.Quantity
-            };
-
-            _context.Collections.Add(collection);
+            
             await _context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
-
-                // //sparar Card först för att skapa PK Id
-                // _context.Cards.Add(vm.Card);
-                // await _context.SaveChangesAsync();
-
-                // //skapar en rad i Collection
-                // var collection = new Collection
-                // {
-                //     CardId = vm.Card.Id,
-                //     UserId = User.FindFirstValue(ClaimTypes.NameIdentifier),
-                //     Status = vm.Status,
-                //     Quantity = vm.Quantity
-                // };
-
-                // _context.Collections.Add(collection);
-                // await _context.SaveChangesAsync();
-
-                // return RedirectToAction("Index"); //(nameof(Index)); istället?
-           
+            return RedirectToAction(nameof(Create));  
         }
 
-        private void SaveChangesAsync()
-        {
-            throw new NotImplementedException();
-        }
 
         // GET: MtgCard/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -160,7 +186,7 @@ namespace projekt_mtg.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ManaCost,TypeLine,OracleText,Rarity, ImageUrl")] Card card)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ManaCost,TypeLine,OracleText,Rarity, ImageUri")] Card card)
         {
             if (id != card.Id)
             {

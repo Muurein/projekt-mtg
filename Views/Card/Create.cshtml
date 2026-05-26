@@ -81,22 +81,21 @@
             </div> *@
     <h4>My Collection</h4>
 
-    <div class="form-group">
-        <label asp-for="Status"></label>
-        <select asp-for="Status" class="form-control">
-            <option value="">-- Select status --</option>
-            <option value="Owned">Owned</option>
-            <option value="Wishlist">Wishlist</option>
-            <option value="InDeck">In Deck</option>
-        </select>
-        <span asp-validation-for="Status" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Quantity"></label>
-        <input asp-for="Quantity" type="number" class="form-control" />
-        <span asp-validation-for="Quantity" class="text-danger"></span>
-    </div>
+            <div class="form-group">
+                <label asp-for="OwnedQuantity" class="control-label">Owned</label>
+                <input asp-for="OwnedQuantity" class="form-control" />
+                <span asp-validation-for="OwnedQuantity"" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WishlistQuantity" class="control-label">Wishlist</label>
+                <input asp-for="WishlistQuantity" class="form-control" />
+                <span asp-validation-for="WishlistQuantity"" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InDeckQuantity" class="control-label">In Deck</label>
+                <input asp-for="InDeckQuantity" class="form-control" />
+                <span asp-validation-for="InDeckQuantity"" class="text-danger"></span>
+            </div>
                 <div class="form-group">
                     <input type="submit" value="Create" class="btn btn-primary" />
                 </div>

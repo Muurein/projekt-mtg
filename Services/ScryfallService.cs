@@ -56,7 +56,7 @@ namespace Projekt_mtg.Services
                     ? oracle.GetString()
                     : "",
                 Rarity = root.GetProperty("rarity").GetString(),
-                ImageUrl = root
+                ImageUri = root
                     .GetProperty("image_uris")
                     .GetProperty("normal")
                     .GetString()

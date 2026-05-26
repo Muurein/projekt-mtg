@@ -9,6 +9,15 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<form asp-controller="Card" asp-action="Index">
+    <p>
+        <label>Namn: </label>
+        <input type="text" name="searchString" />
+        <input type="submit" value="Sök" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -34,7 +43,7 @@
                 @Html.DisplayNameFor(model => model.Rarity)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
+                @Html.DisplayNameFor(model => model.ImageUri)
             </th>
             <th></th>
         </tr>
@@ -64,8 +73,11 @@
                 @Html.DisplayFor(modelItem => item.Rarity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
+                @Html.DisplayFor(modelItem => item.ImageUri)
             </td>
+            @* <td>
+                <img src="@item.ImageUri" class="card-image" />
+            </td> *@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

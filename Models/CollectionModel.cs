@@ -8,20 +8,20 @@ namespace Projekt_mtg.Models
     {
         public int Id { get; set; }
 
-        // FK till CARD
+        //FK till CARD
         public int CardId { get; set; }
 
         //skapar ett objekt för att bättre kunna visa rätt data senare - CardId=personnummer, Card=hela personen
         public Card? Card { get; set; }
 
-        // FK till USER, tring för IdentityUser.Id är alltid string
-        public string UserId { get; set; }
+        //FK till USER, string för IdentityUser.Id är alltid string
+        public string UserId { get; set; } = "";
 
-        // ska kunna vara owned, in deck, wishlist
-        [Required(ErrorMessage = "You must provide if the card is owned, in a deck or in your wishlist")]
-        public string Status { get; set; }
+        //where does the user want to place the card?
+        public int OwnedQuantity { get; set; }
 
-        [Required(ErrorMessage = "You must provide the quantity of cards")]
-        public int Quantity { get; set; }
+        public int WishlistQuantity { get; set; }
+
+        public int InDeckQuantity { get; set; }
     }
 }

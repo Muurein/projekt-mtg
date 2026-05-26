@@ -4,8 +4,8 @@ Microsoft.VisualStudio.Web.CodeGeneration.Design
 aspnet-codegenerator
 
 
-mail: student
-lösen: Passw0rd_
+mail: amanda.l.thim@gmail.com
+lösen: mangan + stor bokstav
 
 
 Vill att vyn när man klickar på "My Collection" ska vara Mtg, med info som titel, kvanititet och status synliga. 
@@ -22,9 +22,18 @@ Card-formulär och CardAndCollectionVM-formulär ska med andra ord visas för an
 
 
 Nästa steg:
-- få över Scryfall API
-- skapa och sätt ihop Card-formuläret och CardAndCollectionVM-formuläret
-- få inloggning att fungera
+- sökfunktionen ska fungera igen
+- ska bara kunna skapa samma kort en gång, sen ska det bara uppdateras
+- när man fyllti  Card-formuläret ska det ta en tillbaka till Create.cshtml
+- ändra styling på navigering
+- när man uppdterar quantity uppdateras inte quantity
+- se til latt man faktiskt får ett mail om att byta lösenord
+- felmeddelanden om man:
+          - skriver in ett kort som inte finns
+
+
+Ska göras:
+- användarinlogging
 
 
 Gjort:
@@ -35,19 +44,19 @@ Gjort:
 - model för Collection
 - model för Set
 - model för User
-- view för Card (MtgGard)
-- view för Collection (Mtg)
-
-
-
-Ska göras:
-- kalla på Scryfall API
-- sökfunktion på kort i Collection
-- användarinlogging
+- view för Card 
+- view för Collection 
+- få över Scryfall API
+- skapa och sätt ihop Card-formuläret och CardAndCollectionVM-formuläret
+- få inloggning att fungera
 - visa kortinfo från Scryfall API
 - kunna lägga till Card i Collection
-- kunna sätta en status på Card i Collection
-- få Scryfall att fylla i alla Card-fält som användaren inte fyller i (kunna känna igen kort-namnet och söta resten liksom)
-- Slå ihop VM med Card och Collection
+- sökfunktion på kort i Collection
+- bara bild, titel och status ska synas i Collection
+- i Collection ska status In deck synas + hur många i deck
+- det ska inte finnas en bildlänk utan en bild
+- "'Card' i nav ska istället kallas 'Add card' och enbart ta användaren till pages->card->Create.cshtml"
+
+
 
 

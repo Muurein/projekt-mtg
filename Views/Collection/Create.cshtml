@@ -23,14 +23,19 @@
                 <span asp-validation-for="UserId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
+                <label asp-for="OwnedQuantity" class="control-label">Owned</label>
+                <input asp-for="OwnedQuantity" class="form-control" />
+                <span asp-validation-for="OwnedQuantity"" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Quantity" class="control-label"></label>
-                <input asp-for="Quantity" class="form-control" />
-                <span asp-validation-for="Quantity" class="text-danger"></span>
+                <label asp-for="WishlistQuantity" class="control-label">Wishlist</label>
+                <input asp-for="WishlistQuantity" class="form-control" />
+                <span asp-validation-for="WishlistQuantity"" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InDeckQuantity" class="control-label">Wishlist</label>
+                <input asp-for="InDeckQuantity" class="form-control" />
+                <span asp-validation-for="InDeckQuantity"" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Projekt_mtg.Models;
 using projekt_mtg.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace projekt_mtg.Controllers
 {
+    [Authorize]
     public class CollectionController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -21,9 +23,34 @@ namespace projekt_mtg.Controllers
         }
 
         // GET: Mtg
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Collections.ToListAsync());
+        public async Task<IActionResult> Index(string searchString)
+        {   
+            //get user's id
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            //creates database-query to see if user has searched for anything and then handles the search query the user might have put in
+            var query = _context.Collections
+                .Include(c => c.Card)
+                .Where(c => c.UserId == userId && (
+                    c.OwnedQuantity > 0 ||
+                    c.InDeckQuantity > 0
+                ));
+
+            if(!string.IsNullOrWhiteSpace(searchString))
+            {
+                searchString = searchString.ToUpper();
+
+                    query = query.Where(c =>
+                        (c.Card!.Name ?? "").ToUpper().Contains(searchString) ||
+                        (c.Card.ManaCost ?? "").ToUpper().Contains(searchString) ||
+                        (c.Card.TypeLine ?? "").ToUpper().Contains(searchString) ||
+                        (c.Card.Rarity ?? "").ToUpper().Contains(searchString)
+                     );
+            }
+
+            var collections = await query.ToListAsync();
+
+            return View(collections); 
         }
 
         // GET: Mtg/Details/5
@@ -55,7 +82,7 @@ namespace projekt_mtg.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CardId,UserId,Status,Quantity")] Collection collection)
+        public async Task<IActionResult> Create([Bind("Id,CardId,UserId,OwnedQuantity,WishlistQuantity,InDeckQuantity")] Collection collection)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +114,7 @@ namespace projekt_mtg.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CardId,UserId,Status,Quantity")] Collection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CardId,UserId,OwnedQuantity,WishlistQuantity,InDeckQuantity")] Collection collection)
         {
             if (id != collection.Id)
             {
@@ -156,14 +183,32 @@ namespace projekt_mtg.Controllers
         }
 
 
-        public async Task<IActionResult> Wishlist()
-{
+        //Wishlist
+        public async Task<IActionResult> Wishlist(string searchString)
+        {
+        //get user's id
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-        var wishlist = await _context.Collections
+        //creates database-query to see if user has searched for anything and then handles the search query the user might have put in
+        var query = _context.Collections
             .Include(c => c.Card)
-            .Where(c => c.UserId == userId && c.Status == "Wishlist")
-            .ToListAsync();
+            .Where(c => c.UserId == userId && (
+                c.WishlistQuantity > 0
+            ));
+
+        if(!string.IsNullOrWhiteSpace(searchString))
+        {
+            searchString = searchString.ToUpper();
+
+                query = query.Where(c =>
+                    (c.Card!.Name ?? "").ToUpper().Contains(searchString) ||
+                    (c.Card.ManaCost ?? "").ToUpper().Contains(searchString) ||
+                    (c.Card.TypeLine ?? "").ToUpper().Contains(searchString) ||
+                    (c.Card.Rarity ?? "").ToUpper().Contains(searchString)
+                );
+        }
+
+        var wishlist = await query.ToListAsync();
 
         return View(wishlist);
 }

@@ -12,6 +12,6 @@ namespace Projekt_mtg.DTOs
 
         public string? Rarity { get; set; }
 
-        public string? ImageUrl { get; set; }
+        public string? ImageUri { get; set; }
     }
 }

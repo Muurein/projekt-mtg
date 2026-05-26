@@ -1,4 +1,4 @@
-html {
+/* html {
   font-size: 14px;
 }
 
@@ -28,4 +28,160 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+} */
+
+* {
+  margin: 0;
+}
+
+body {
+  background-color: #28292B;
+  color: white;
+  font-size: 16px;
+  font-family: Open Sans, Arial, Helvetica, sans-serif;
+}
+
+/*******************************************************************************************************************************************
+  MAIN MENU
+*******************************************************************************************************************************************/
+header {
+  background-color: #4A636D;
+  color: white;
+}
+
+.navbar-brand {
+  color: rgb(212, 25, 135);
+} 
+
+/* .nav-link {
+
+} */
+
+
+/*******************************************************************************************************************************************
+  CARDS
+*******************************************************************************************************************************************/
+.main-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+}
+
+.gridbox article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.card-name-div {
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 6px;
+  width: 238px;
+  height: 332px;
+}
+
+.card-image {
+  border-radius: 10px;
+  width: 238px;
+  height: 332px;
+}
+
+.card-name {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.button {
+  padding: 0.5em;
+  border: none;
+  border-radius: 15px;
+  width: 80px;
+  height: 40px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
+.update-button {  /* VARFÖR ÄNDRAR NI INTE ER JÄVLA STORLEK FÖR */
+  /* width: 80px;
+  height: 40px; */
+  background-color: #35A4B1;
+  color: white;
+}
+
+.remove-button {
+  /* width: 80px;
+  height: 40px; */
+  background-color: #933542;
+  color: white;
+}
+
+.update-button:hover {
+  background-color: #b3f4fc;
+  color: black;
+}
+
+.remove-button:hover {
+  background-color: #fab7c0;
+  color: black;
+}
+
+.general-button:hover {
+  background-color: rgb(241, 203, 131);
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+
+/*******************************************************************************************************************************************
+  CREATE-, EDIT- AND DELETE-FORMS
+*******************************************************************************************************************************************/
+.control-label{
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 70%;
+}
+
+.green-button {
+  background-color: #24603F;
+  color: white;
+}
+
+.green-button:hover {
+  background-color: rgb(169, 224, 194);
+  color: black;
+}
+
+
+
+/* for large screens */
+@media (min-width: 1024px) {
+
+  .main-cards {
+    width: 90%;
+  }
+  
+  .gridbox {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 50px;
+    text-align: left;
+  }
+
+  .card-image:hover {
+      transform: scale(1.7);
+  }
 }
