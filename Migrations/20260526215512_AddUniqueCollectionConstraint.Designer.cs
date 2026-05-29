@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using projekt_mtg.Data;
 
@@ -10,9 +11,11 @@ using projekt_mtg.Data;
 namespace projekt_mtg.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260526215512_AddUniqueCollectionConstraint")]
+    partial class AddUniqueCollectionConstraint
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.3");
@@ -276,55 +279,6 @@ namespace projekt_mtg.Migrations
                     b.ToTable("Collections");
                 });
 
-            modelBuilder.Entity("Projekt_mtg.Models.Deck", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Format")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Decks");
-                });
-
-            modelBuilder.Entity("Projekt_mtg.Models.DeckCard", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("CardId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("DeckId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsCommander")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CardId");
-
-                    b.HasIndex("DeckId");
-
-                    b.ToTable("DeckCards");
-                });
-
             modelBuilder.Entity("Projekt_mtg.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -406,33 +360,9 @@ namespace projekt_mtg.Migrations
                     b.Navigation("Card");
                 });
 
-            modelBuilder.Entity("Projekt_mtg.Models.DeckCard", b =>
-                {
-                    b.HasOne("Projekt_mtg.Models.Card", "Card")
-                        .WithMany()
-                        .HasForeignKey("CardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Projekt_mtg.Models.Deck", "Deck")
-                        .WithMany("DeckCards")
-                        .HasForeignKey("DeckId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Card");
-
-                    b.Navigation("Deck");
-                });
-
             modelBuilder.Entity("Projekt_mtg.Models.Card", b =>
                 {
                     b.Navigation("Collections");
-                });
-
-            modelBuilder.Entity("Projekt_mtg.Models.Deck", b =>
-                {
-                    b.Navigation("DeckCards");
                 });
 #pragma warning restore 612, 618
         }

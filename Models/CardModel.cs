@@ -7,18 +7,12 @@ namespace Projekt_mtg.Models
         //properties - fields in database
         public int Id { get; set; }
 
-        //public int SetId { get; set; }
-
         [Required(ErrorMessage = "You must provide a card name")]
         public string? Name{ get; set; }
-
-        //public string? Color { get; set; }
 
         public string? ManaCost { get; set; }
 
         public string? TypeLine { get; set; }
-
-        //public string? Description { get; set; }
 
         public string? OracleText { get; set; }
 

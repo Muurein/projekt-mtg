@@ -13,16 +13,16 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            @* <div class="form-group">
+            <div class="form-group hidden-input">
                 <label asp-for="CardId" class="control-label"></label>
-                <input asp-for="CardId" class="form-control" />
+                <input asp-for="CardId" type="hidden" class="form-control" />
                 <span asp-validation-for="CardId" class="text-danger"></span>
-            </div> *@
-            @* <div class="form-group">
+            </div> 
+            <div class="form-group hidden-input">
                 <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" />
+                <input asp-for="UserId" type="hidden" class="form-control" />
                 <span asp-validation-for="UserId" class="text-danger"></span>
-            </div> *@
+            </div>
             <div class="form-group">
                 <label asp-for="OwnedQuantity" class="control-label">Owned</label>
                 <input asp-for="OwnedQuantity" class="form-control" />
@@ -45,8 +45,8 @@
     </div>
 </div>
 
-<div>
-    <a class="general-button button" asp-action="Index">Back to your collection</a>
+<div class="form-group">
+    <a class="general-button button back-button" asp-action="Index">Back to your collection</a>
 </div>
 
 @section Scripts {

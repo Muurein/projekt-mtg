@@ -22,19 +22,22 @@ Card-formulär och CardAndCollectionVM-formulär ska med andra ord visas för an
 
 
 Nästa steg:
-- sökfunktionen ska fungera igen
-- ska bara kunna skapa samma kort en gång, sen ska det bara uppdateras
-- när man fyllti  Card-formuläret ska det ta en tillbaka till Create.cshtml
 - ändra styling på navigering
-- när man uppdterar quantity uppdateras inte quantity
-- se til latt man faktiskt får ett mail om att byta lösenord
-- felmeddelanden om man:
-          - skriver in ett kort som inte finns
+- se till att man ska kunna ta bort kvantiteter med Remove och inte bara ta bort hela kortet på ett klick, kortet ska bara försvinna om det står 0 i värde 
+- styla search-bar
+- felmeddelanden om man inte fyllt i alla värden rätt när man lägger till kort
+- felmeddelande om kortet inte finns
+- kunna bygga lekar (lägg till InDeck)
+- stylea log in sida
+- skapa vy som heter Decks i menyn där man ska klicka på en knapp som "Add Deck" sopm tar en till Create.cshtml, sen syns den med en "förstasida" på Decks-sidan (räcker med en siffra eller så). 
+  Sedan kan man kunna ta sig in leken genom att klicka på den, och där få en sida som visar korten på samma sätt som i My Collection. Där ska man kunna sök OCH lägga till nya DeckCards.
+  Commandern ska alltid ligga först (helst) och som MVP (minimum viable product) kanske ha en liten färgad ruta runt sig för att visa att det är Commandern (om det är en Commander-lek)
 
 
 Ska göras:
-- användarinlogging
-
+- se til latt man faktiskt får ett mail om att byta lösenord
+- få in kort från Scryfall på startsidan ELLER förklara sidan där
+- styla kommande Remove
 
 Gjort:
 - databas i SQLite
@@ -56,7 +59,8 @@ Gjort:
 - i Collection ska status In deck synas + hur många i deck
 - det ska inte finnas en bildlänk utan en bild
 - "'Card' i nav ska istället kallas 'Add card' och enbart ta användaren till pages->card->Create.cshtml"
-
+- styla Add Cards
+- styla Update
 
 
 

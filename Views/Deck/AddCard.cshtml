@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"]="Add Card to Deck";
+}
+
+<h1>Add Card to Deck</h1>
+
+<form asp-actino="AddCard" method="post">
+    <input type="hidden" name="deckId" value="@ViewBag.DeckId"/>
+
+    
+    <div class="form-group">
+        <label>Card Name</label>
+        <br />
+        <input class="form-control" name="cardName" />
+    </div>
+
+    <div class="form-group">
+        <label>Quantity</label>
+        <br />
+        <input class="form-control" name="quantity" value="1" />
+    </div>
+
+    <div class="form-group">
+        <label>Commander: </label>
+        <input type="checkbox" name="isCommander" value="true" />
+    </div>
+
+    <button class="green-button button" type="submit">Add</button>
+</form>

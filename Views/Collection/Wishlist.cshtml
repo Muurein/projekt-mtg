@@ -22,9 +22,11 @@
     @foreach (var item in Model)
     {
         <article>
-            @if(item.Card != null) {
-                <img class="card-image" src="@item.Card.ImageUri" alt="@item.Card.Name" />
-            }
+            <div class="card-name-div">
+                @if(item.Card != null) {
+                    <img class="card-image" src="@item.Card.ImageUri" alt="@item.Card.Name" />
+                }
+            </div>
             
 
             <div class="card-info">

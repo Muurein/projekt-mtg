@@ -9,11 +9,11 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         //modellerna i databasen (Card) och colletion (Cards)
         public DbSet<Card> Cards { get; set; }
 
-
-       // public DbSet<Set> Sets { get; set; }
-
-
         public DbSet<Collection> Collections { get; set; }
+
+        public DbSet<Deck> Decks { get; set; }
+
+        public DbSet<DeckCard> DeckCards { get; set; }
 
 
         public DbSet<User> CollUsers { get; set; }
@@ -40,7 +40,22 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                         .HasIndex(c => new { c.CardId, c.UserId })
                         .IsUnique();
 
-                        
+                //defines deck to deckCards relation
+                builder.Entity<DeckCard>()
+                        .HasOne(dc => dc.Deck)
+                        .WithMany(d => d.DeckCards)
+                        .HasForeignKey(dc => dc.DeckId);
+
+                //defines deckCards to cards relation
+                builder.Entity<DeckCard>()
+                        .HasOne(dc => dc.Card)
+                        .WithMany()
+                        .HasForeignKey(dc => dc.CardId);
+                
+                //same user can't have two rows with the same card
+                builder.Entity<DeckCard>()
+                        .HasIndex(dc => new { dc.DeckId, dc.CardId })
+                        .IsUnique();
         }
         
 }

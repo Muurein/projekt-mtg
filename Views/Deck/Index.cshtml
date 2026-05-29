@@ -1,0 +1,41 @@
+@model IEnumerable<Projekt_mtg.Models.Deck>
+
+@{
+    ViewData["Title"] = "Decks";
+}
+
+
+<main class="main-cards">
+    <h1>My Decks</h1>
+
+    <div class="search-field">
+        <form method="get">
+            <label for="searchString">Search:</label>
+            <br />
+            <input class="form-input" type="text" id="searchString" name="searchString" />
+            <br />
+            <button class="general-button button" type="submit">Search</button>
+        </form>
+    </div>
+
+    <a class="green-button button" asp-action="Create">Create A Deck</a>
+
+    <div class="gridbox">
+
+        @foreach (var item in Model)
+        {
+            <article>
+                <div class="card-info">
+                    
+                    <p class="card-name">@item.Name</p>
+
+                    <div class="card-buttons">
+                        <a class="update-button button" asp-action="Details" asp-route-id="@item.Id">Add card</a>
+                        <a class="update-button button" asp-action="Edit" asp-route-id="@item.Id">Update</a>
+                        <a class="remove-button button" asp-action="Delete" asp-route-id="@item.Id">Remove</a>
+                    </div>
+                </div>
+            </article>
+        }
+    </div>
+</main>

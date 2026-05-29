@@ -11,6 +11,21 @@ a {
   color: #0077cc;
 }
 
+.navbar {
+  background-color: #4A636D;
+  color: white;
+}
+
+
+.nav-link {
+  color: white;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: #d4af37;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;

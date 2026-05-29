@@ -114,7 +114,7 @@ namespace projekt_mtg.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CardId,UserId,OwnedQuantity,WishlistQuantity,InDeckQuantity")] Collection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,OwnedQuantity,WishlistQuantity,InDeckQuantity")] Collection collection)
         {
             if (id != collection.Id)
             {
@@ -125,7 +125,17 @@ namespace projekt_mtg.Controllers
             {
                 try
                 {
-                    _context.Update(collection);
+                    var currentCollection = await _context.Collections.FindAsync(id);
+                        
+                    if(currentCollection == null)
+                    {   
+                        return NotFound();
+                    }
+
+                    currentCollection.OwnedQuantity = collection.OwnedQuantity;
+                    currentCollection.WishlistQuantity = collection.WishlistQuantity;
+                    currentCollection.InDeckQuantity = collection.InDeckQuantity;
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

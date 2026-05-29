@@ -1,0 +1,47 @@
+@model Projekt_mtg.Models.Deck
+
+@{
+    ViewData["Title"] = "Deck Details";
+}
+
+<main>
+    <h1>@Model.Name</h1>
+
+    <p>@Model.Format</p>
+
+    <a class="green-button button" asp-action="AddCard" asp-route-deckId="@Model.Id">Add Card</a>
+
+    <div class="search-field">
+        <form method="get">
+            <input type="hidden" name="id" value="@Model.Id" />
+            
+            <label for="searchString">Search:</label>
+            <br />
+            <input class="form-input" type="text" id="searchString" name="searchString" />
+            <br />
+            <button class="general-button button" type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="gridbox">
+        @foreach(var item in Model.DeckCards)
+        {
+            <article class="@(item.IsCommander ? "commander-card" : "")">
+
+                <div class="card-name-div">
+                    <img class="card-image" src="@item.Card.ImageUri" alt="@item.Card.Name" />
+                </div>
+
+                <div class="card-info">
+                    <p class="card-name">@item.Card.Name</p>
+                    <p>Quantity: @item.Quantity</p>
+
+                    @if(item.IsCommander)
+                    {
+                        <p>Commander</p>
+                    }
+                </div>
+            </article>
+        }
+    </div>
+</main>
