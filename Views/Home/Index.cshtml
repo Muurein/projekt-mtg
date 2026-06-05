@@ -1,8 +1,45 @@
-﻿@{
+﻿@model IEnumerable<Projekt_mtg.DTOs.CardDto>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<main class="main-cards">
+    <h1>B</h1>
+
+    <!--lets the user search for cards in Scryfall's database-->
+    <div class="search-field">
+        <form method="get">
+            <label for="searchString">Search:</label>
+            <br />
+            <input class="form-input" type="text" id="searchString" name="searchString" />
+            <br />
+            <button class="general-button button crud-button" id="search-button" type="submit">Search</button>
+        </form>
+    </div>
+
+    <!--writes out the cards in a grid, only showing their images and names-->
+    <div class="gridbox">
+
+        @if(!Model.Any())
+        {
+            <p>No cards found</p>
+        }
+
+        @foreach (var item in Model)
+        {
+            <article>
+                <div class="card-name-div">
+                    <img class="card-image" src="@item.ImageUri" alt="@item.Name" />
+                </div>
+
+                <div class="card-info">
+                    <p class="card-name">@item.Name</p>
+                </div>
+            </article>
+        }
+    </div>
+</main>
+
+
+

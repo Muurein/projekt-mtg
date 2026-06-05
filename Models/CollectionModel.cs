@@ -8,13 +8,13 @@ namespace Projekt_mtg.Models
     {
         public int Id { get; set; }
 
-        //FK till CARD
+        //FK to CARD
         public int CardId { get; set; }
 
-        //skapar ett objekt för att bättre kunna visa rätt data senare - CardId=personnummer, Card=hela personen
+        //creates an object to better show data later - CardId=social security number, Card=the whole person
         public Card? Card { get; set; }
 
-        //FK till USER, string för IdentityUser.Id är alltid string
+        //FK to USER, string forIdentityUser.Id is alway a sstring
         public string UserId { get; set; } = "";
 
         //where does the user want to place the card?

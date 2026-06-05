@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Projekt_mtg.Models
 {
-    //de olika formaten en lek kan ha
+    //the different formats a deck can have
     public enum DeckFormat
     {
         Standard,

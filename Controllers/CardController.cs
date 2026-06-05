@@ -1,26 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Projekt_mtg.Models;
 using Projekt_mtg.Models.ViewModels;
 using projekt_mtg.Data;
 using System.Security.Claims;
 using Projekt_mtg.Services;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authorization;
 
 namespace projekt_mtg.Controllers
 {
     [Authorize]
     public class CardController : Controller
-    {
+    {   
+        //connect to database and Scryfall API
         private readonly ApplicationDbContext _context;
         private readonly ScryfallService _scryfallService;
-        private string? searchString;
 
         public CardController(ApplicationDbContext context, ScryfallService scryfallService)
         {
@@ -28,7 +22,8 @@ namespace projekt_mtg.Controllers
             _scryfallService = scryfallService;
         }
 
-        // GET: MtgCard
+        // GET: Card
+        //displays cards and lets user search for cards according to four attributes
         public async Task<IActionResult> Index(string searchString)
         {
             if(_context.Cards == null)
@@ -39,6 +34,7 @@ namespace projekt_mtg.Controllers
             var cards = from c in _context.Cards 
                         select c;
 
+            //checks if user entered search string
             if(!String.IsNullOrEmpty(searchString))
             {
                 cards = cards.Where(c =>
@@ -52,16 +48,18 @@ namespace projekt_mtg.Controllers
             return View(await cards.ToListAsync()); 
         }
 
-        // GET: MtgCard/Details/5
+        // GET: Card/Details/5
         public async Task<IActionResult> Details(int? id)
-        {
+        {   
+            //in case no ID was provided
             if (id == null)
             {
                 return NotFound();
             }
 
-            var card = await _context.Cards
-                .FirstOrDefaultAsync(m => m.Id == id);
+            //find card by ID
+            var card = await _context.Cards.FirstOrDefaultAsync(m => m.Id == id);
+
             if (card == null)
             {
                 return NotFound();
@@ -70,49 +68,37 @@ namespace projekt_mtg.Controllers
             return View(card);
         }
 
-        // GET: MtgCard/Create
+        // GET: Card/Create
+        //sends empty ViewModel to form for user to add card
         public IActionResult Create()
         {
-            //return view model
             return View(new CardAndCollectionVM());
         }
 
-        // POST: MtgCard/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Card/Create
+        //gets data from Scryfall, creates card from API-data, adds it to user's collection
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CardAndCollectionVM vm)
-        // ([Bind("Id,SetId,Title,Color,ManaValue,Type,Description,Rarity")] Card card)
         {
-            // if (ModelState.IsValid)
-            // {
-            //     _context.Add(card);
-            //     await _context.SaveChangesAsync();
-            //     return RedirectToAction(nameof(Index));
-            // }
-            // return View(card);
-
+            //validates form input
             if (!ModelState.IsValid)
             {
                 return View(vm);
             }
 
-            //hämtar data från Scryfall
             var scryfallCard = await _scryfallService.GetCardByName(vm.CardName);
 
             if(scryfallCard == null)
             {
-                ModelState.AddModelError("", "Kortet hittated inte");
+                ModelState.AddModelError("", "Card was not found");
                 return View(vm);
             }
 
-            //skapa kort från API-data
-            //finns redan kortet?
+            //does card already exist? No -> create new card
             var card = await _context.Cards
                 .FirstOrDefaultAsync(c => c.Name == scryfallCard.Name);
 
-            //om nej, skapa nytt kort
             if(card == null)
             {
                 card = new Card
@@ -130,7 +116,8 @@ namespace projekt_mtg.Controllers
             }
 
 
-            //lägger till i collection och kollar om ett kort redan finns (om ja, uppdatera collection istället för att skapa en ny rad)
+            //adds card to collection and checks t osee if the card is already there. If yes, update collection instead of creating another row with the same card
+            //in other words, updates quantities instead of creating duplicate row
             var currentCollection = await _context.Collections
                 .FirstOrDefaultAsync(c =>
                     c.CardId == card.Id &&
@@ -161,11 +148,12 @@ namespace projekt_mtg.Controllers
             
             await _context.SaveChangesAsync();
 
+            //reload Create-page
             return RedirectToAction(nameof(Create));  
         }
 
 
-        // GET: MtgCard/Edit/5
+        // GET: Card/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -181,13 +169,13 @@ namespace projekt_mtg.Controllers
             return View(card);
         }
 
-        // POST: MtgCard/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Card/Edit/5
+        //creates card
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ManaCost,TypeLine,OracleText,Rarity, ImageUri")] Card card)
         {
+            //makes sure that the right card is edited
             if (id != card.Id)
             {
                 return NotFound();
@@ -202,6 +190,7 @@ namespace projekt_mtg.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
+                    //if card was deleted by another user
                     if (!CardExists(card.Id))
                     {
                         return NotFound();
@@ -211,12 +200,15 @@ namespace projekt_mtg.Controllers
                         throw;
                     }
                 }
+
+                //redirct to Index-page
                 return RedirectToAction(nameof(Index));
             }
             return View(card);
         }
 
-        // GET: MtgCard/Delete/5
+        // GET: Card/Delete/5
+        //delete-page
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -224,8 +216,8 @@ namespace projekt_mtg.Controllers
                 return NotFound();
             }
 
-            var card = await _context.Cards
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var card = await _context.Cards.FirstOrDefaultAsync(m => m.Id == id);
+
             if (card == null)
             {
                 return NotFound();
@@ -234,7 +226,8 @@ namespace projekt_mtg.Controllers
             return View(card);
         }
 
-        // POST: MtgCard/Delete/5
+        // POST: Card/Delete/5
+        //acutally deletes the card from the database
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -249,13 +242,14 @@ namespace projekt_mtg.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //double checks that the card actually exists in database
         private bool CardExists(int id)
         {
             return _context.Cards.Any(e => e.Id == id);
         }
 
 
-        //söker efter kort
+        //search for card, matches card name with data from Scryfall
         [HttpGet]
         public async Task<IActionResult> SearchCardNames(string query)
         {

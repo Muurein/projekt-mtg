@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amand\\OneDrive\\Dokument\\Webbutvekling 2024-2026\\.NET\\projekt-mtg\\projekt-mtg.csproj": {}
+    "D:\\projekt-mtg\\projekt-mtg.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amand\\OneDrive\\Dokument\\Webbutvekling 2024-2026\\.NET\\projekt-mtg\\projekt-mtg.csproj": {
+    "D:\\projekt-mtg\\projekt-mtg.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amand\\OneDrive\\Dokument\\Webbutvekling 2024-2026\\.NET\\projekt-mtg\\projekt-mtg.csproj",
+        "projectUniqueName": "D:\\projekt-mtg\\projekt-mtg.csproj",
         "projectName": "projekt-mtg",
-        "projectPath": "C:\\Users\\amand\\OneDrive\\Dokument\\Webbutvekling 2024-2026\\.NET\\projekt-mtg\\projekt-mtg.csproj",
+        "projectPath": "D:\\projekt-mtg\\projekt-mtg.csproj",
         "packagesPath": "C:\\Users\\amand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amand\\OneDrive\\Dokument\\Webbutvekling 2024-2026\\.NET\\projekt-mtg\\obj\\",
+        "outputPath": "D:\\projekt-mtg\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -53,39 +53,41 @@
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[10.0.8, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[10.0.8, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[10.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[10.0.3, )"
+              "version": "[10.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[10.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[10.0.8, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[10.0.2, )"
             },
-            "MongoDB.Driver": {
+            "NuGet.Packaging": {
               "target": "Package",
-              "version": "[3.6.0, )"
+              "version": "[7.6.0, )"
             },
-            "MongoDB.EntityFrameworkCore": {
+            "NuGet.Protocol": {
               "target": "Package",
-              "version": "[10.0.0, )"
+              "version": "[7.6.0, )"
             }
           },
           "imports": [

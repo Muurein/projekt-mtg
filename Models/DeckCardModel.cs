@@ -10,7 +10,7 @@ namespace Projekt_mtg.Models
         //FK till DeckModel
         public int DeckId { get; set; }
 
-        //skapar ett objekt för att bättre kunna visa rätt data senare - DeckId=personnummer, Deck=hela personen
+        //creates an object to better show data later - CardId=social security number, Card=the whole person
         public Deck? Deck { get; set; }
 
         //FK till Card

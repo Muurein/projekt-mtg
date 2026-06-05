@@ -38,19 +38,6 @@
           }
         }
       },
-      "DnsClient/1.6.1": {
-        "type": "package",
-        "compile": {
-          "lib/net5.0/DnsClient.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net5.0/DnsClient.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -645,10 +632,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/10.0.1": {
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/10.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.1"
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.8"
         },
         "compile": {
           "lib/net10.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {
@@ -664,10 +651,10 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.1": {
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.1"
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.8"
         },
         "compile": {
           "lib/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
@@ -680,10 +667,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Identity.UI/10.0.1": {
+      "Microsoft.AspNetCore.Identity.UI/10.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Embedded": "10.0.1"
+          "Microsoft.Extensions.FileProviders.Embedded": "10.0.8"
         },
         "compile": {
           "lib/net10.0/Microsoft.AspNetCore.Identity.UI.dll": {
@@ -1403,7 +1390,7 @@
           }
         }
       },
-      "Microsoft.Data.Sqlite.Core/10.0.1": {
+      "Microsoft.Data.Sqlite.Core/10.0.8": {
         "type": "package",
         "dependencies": {
           "SQLitePCLRaw.core": "2.1.11"
@@ -1460,11 +1447,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/10.0.3": {
+      "Microsoft.EntityFrameworkCore/10.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.3",
-          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.3"
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.8",
+          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.8"
         },
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
@@ -1480,7 +1467,7 @@
           "buildTransitive/net10.0/Microsoft.EntityFrameworkCore.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/10.0.3": {
+      "Microsoft.EntityFrameworkCore.Abstractions/10.0.8": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
@@ -1493,7 +1480,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/10.0.3": {
+      "Microsoft.EntityFrameworkCore.Analyzers/10.0.8": {
         "type": "package"
       },
       "Microsoft.EntityFrameworkCore.Design/10.0.2": {
@@ -1523,10 +1510,10 @@
           "build/net10.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/10.0.3": {
+      "Microsoft.EntityFrameworkCore.Relational/10.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "10.0.3"
+          "Microsoft.EntityFrameworkCore": "10.0.8"
         },
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll": {
@@ -1539,11 +1526,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Sqlite/10.0.1": {
+      "Microsoft.EntityFrameworkCore.Sqlite/10.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Sqlite.Core": "10.0.1",
-          "Microsoft.Extensions.DependencyModel": "10.0.1",
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "10.0.8",
+          "Microsoft.Extensions.DependencyModel": "10.0.8",
           "SQLitePCLRaw.bundle_e_sqlite3": "2.1.11",
           "SQLitePCLRaw.core": "2.1.11"
         },
@@ -1554,12 +1541,12 @@
           "lib/net10.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Sqlite.Core/10.0.1": {
+      "Microsoft.EntityFrameworkCore.Sqlite.Core/10.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Data.Sqlite.Core": "10.0.1",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.1",
-          "Microsoft.Extensions.DependencyModel": "10.0.1",
+          "Microsoft.Data.Sqlite.Core": "10.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.8",
+          "Microsoft.Extensions.DependencyModel": "10.0.8",
           "SQLitePCLRaw.core": "2.1.11"
         },
         "compile": {
@@ -1573,11 +1560,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/10.0.3": {
+      "Microsoft.EntityFrameworkCore.SqlServer/10.0.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.Data.SqlClient": "6.1.1",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.3"
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.8"
         },
         "compile": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
@@ -1590,13 +1577,19 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/10.0.1": {
+      "Microsoft.EntityFrameworkCore.Tools/10.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "10.0.1"
+          "Microsoft.EntityFrameworkCore.Design": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/_._": {}
+        },
+        "runtime": {
+          "lib/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyModel/10.0.2": {
+      "Microsoft.Extensions.DependencyModel/10.0.8": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.Extensions.DependencyModel.dll": {
@@ -1612,7 +1605,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Embedded/10.0.1": {
+      "Microsoft.Extensions.FileProviders.Embedded/10.0.8": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.Extensions.FileProviders.Embedded.dll": {
@@ -2034,56 +2027,6 @@
           }
         }
       },
-      "MongoDB.Bson/3.6.0": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/MongoDB.Bson.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/MongoDB.Bson.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "MongoDB.Driver/3.6.0": {
-        "type": "package",
-        "dependencies": {
-          "DnsClient": "1.6.1",
-          "MongoDB.Bson": "3.6.0",
-          "SharpCompress": "0.30.1",
-          "Snappier": "1.0.0",
-          "ZstdSharp.Port": "0.7.3"
-        },
-        "compile": {
-          "lib/net6.0/MongoDB.Driver.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/MongoDB.Driver.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "MongoDB.EntityFrameworkCore/10.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "10.0.2",
-          "MongoDB.Driver": "3.6.0"
-        },
-        "compile": {
-          "lib/net10.0/MongoDB.EntityFrameworkCore.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net10.0/MongoDB.EntityFrameworkCore.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Mono.TextTemplating/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -2112,35 +2055,35 @@
           }
         }
       },
-      "NuGet.Common/6.12.1": {
+      "NuGet.Common/7.6.0": {
         "type": "package",
         "dependencies": {
-          "NuGet.Frameworks": "6.12.1"
+          "NuGet.Frameworks": "7.6.0"
         },
         "compile": {
-          "lib/netstandard2.0/NuGet.Common.dll": {
+          "lib/net8.0/NuGet.Common.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/NuGet.Common.dll": {
+          "lib/net8.0/NuGet.Common.dll": {
             "related": ".xml"
           }
         }
       },
-      "NuGet.Configuration/6.12.1": {
+      "NuGet.Configuration/7.6.0": {
         "type": "package",
         "dependencies": {
-          "NuGet.Common": "6.12.1",
-          "System.Security.Cryptography.ProtectedData": "4.4.0"
+          "NuGet.Common": "7.6.0",
+          "System.Security.Cryptography.ProtectedData": "8.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/NuGet.Configuration.dll": {
+          "lib/net8.0/NuGet.Configuration.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/NuGet.Configuration.dll": {
+          "lib/net8.0/NuGet.Configuration.dll": {
             "related": ".xml"
           }
         }
@@ -2163,15 +2106,15 @@
           }
         }
       },
-      "NuGet.Frameworks/6.12.1": {
+      "NuGet.Frameworks/7.6.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/NuGet.Frameworks.dll": {
+          "lib/net8.0/NuGet.Frameworks.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/NuGet.Frameworks.dll": {
+          "lib/net8.0/NuGet.Frameworks.dll": {
             "related": ".xml"
           }
         }
@@ -2193,21 +2136,21 @@
           }
         }
       },
-      "NuGet.Packaging/6.12.1": {
+      "NuGet.Packaging/7.6.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
-          "NuGet.Configuration": "6.12.1",
-          "NuGet.Versioning": "6.12.1",
-          "System.Security.Cryptography.Pkcs": "6.0.4"
+          "NuGet.Configuration": "7.6.0",
+          "NuGet.Versioning": "7.6.0",
+          "System.Security.Cryptography.Pkcs": "8.0.1"
         },
         "compile": {
-          "lib/net5.0/NuGet.Packaging.dll": {
+          "lib/net8.0/NuGet.Packaging.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net5.0/NuGet.Packaging.dll": {
+          "lib/net8.0/NuGet.Packaging.dll": {
             "related": ".xml"
           }
         }
@@ -2228,53 +2171,31 @@
           }
         }
       },
-      "NuGet.Protocol/6.12.1": {
+      "NuGet.Protocol/7.6.0": {
         "type": "package",
         "dependencies": {
-          "NuGet.Packaging": "6.12.1"
+          "NuGet.Packaging": "7.6.0"
         },
         "compile": {
-          "lib/net5.0/NuGet.Protocol.dll": {
+          "lib/net8.0/NuGet.Protocol.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net5.0/NuGet.Protocol.dll": {
+          "lib/net8.0/NuGet.Protocol.dll": {
             "related": ".xml"
           }
         }
       },
-      "NuGet.Versioning/6.12.1": {
+      "NuGet.Versioning/7.6.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/NuGet.Versioning.dll": {
+          "lib/net8.0/NuGet.Versioning.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/NuGet.Versioning.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "SharpCompress/0.30.1": {
-        "type": "package",
-        "compile": {
-          "lib/net5.0/SharpCompress.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/SharpCompress.dll": {}
-        }
-      },
-      "Snappier/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net5.0/Snappier.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net5.0/Snappier.dll": {
+          "lib/net8.0/NuGet.Versioning.dll": {
             "related": ".xml"
           }
         }
@@ -2675,15 +2596,6 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
-      },
-      "ZstdSharp.Port/0.7.3": {
-        "type": "package",
-        "compile": {
-          "lib/net7.0/ZstdSharp.dll": {}
-        },
-        "runtime": {
-          "lib/net7.0/ZstdSharp.dll": {}
-        }
       }
     }
   },
@@ -2726,30 +2638,6 @@
         "lib/net8.0/Azure.Identity.xml",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
-      ]
-    },
-    "DnsClient/1.6.1": {
-      "sha512": "4H/f2uYJOZ+YObZjpY9ABrKZI+JNw3uizp6oMzTXwDw6F+2qIPhpRl/1t68O/6e98+vqNiYGu+lswmwdYUy3gg==",
-      "type": "package",
-      "path": "dnsclient/1.6.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "dnsclient.1.6.1.nupkg.sha512",
-        "dnsclient.nuspec",
-        "icon.png",
-        "lib/net45/DnsClient.dll",
-        "lib/net45/DnsClient.xml",
-        "lib/net471/DnsClient.dll",
-        "lib/net471/DnsClient.xml",
-        "lib/net5.0/DnsClient.dll",
-        "lib/net5.0/DnsClient.xml",
-        "lib/netstandard1.3/DnsClient.dll",
-        "lib/netstandard1.3/DnsClient.xml",
-        "lib/netstandard2.0/DnsClient.dll",
-        "lib/netstandard2.0/DnsClient.xml",
-        "lib/netstandard2.1/DnsClient.dll",
-        "lib/netstandard2.1/DnsClient.xml"
       ]
     },
     "Humanizer/2.14.1": {
@@ -3498,10 +3386,10 @@
         "logo.png"
       ]
     },
-    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/10.0.1": {
-      "sha512": "1d/r5maWKWO9+zf78KouQ8+y2PpCLl6qZ9vQAPTYtlOLPl9BoLq6+cydpocEENn0xUbdIocaoyRt+ZYbMVhOtw==",
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/10.0.8": {
+      "sha512": "5q7okMm2y0n96DQF1Tw76HEEoDYza+pKOk1jbynQ1I3fArW0srv/08Sc9s6nFol72kcDJgyf6kqoK5Q0wNRVAg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/10.0.1",
+      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3510,14 +3398,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net10.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll",
         "lib/net10.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.xml",
-        "microsoft.aspnetcore.diagnostics.entityframeworkcore.10.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.diagnostics.entityframeworkcore.10.0.8.nupkg.sha512",
         "microsoft.aspnetcore.diagnostics.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.1": {
-      "sha512": "Dljm38k9d36gMXvNuhNrevoh2hh9wp7z3wcWN21qesm37GToDhYtdMjyQzw4a2J+rTJ19io0FDb0HQBtQVo7rw==",
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.8": {
+      "sha512": "GvUGVaFpAihzb0MEUVunhwFNVI/s9wCtOidbaz4JucM3W/YiMtccki9Gm+qcoxlPxQyGpAxX11bvEghL87TMGA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.entityframeworkcore/10.0.1",
+      "path": "microsoft.aspnetcore.identity.entityframeworkcore/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3526,14 +3414,14 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
         "lib/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
-        "microsoft.aspnetcore.identity.entityframeworkcore.10.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.identity.entityframeworkcore.10.0.8.nupkg.sha512",
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.UI/10.0.1": {
-      "sha512": "/G+aPeOTwXXIr8kZ5gIF5n3WE2kH6GXzSkP81ySy4WOTWuyZEzcw5HnBJMgAFoskF3ifUH6HPASpkxadgH38/A==",
+    "Microsoft.AspNetCore.Identity.UI/10.0.8": {
+      "sha512": "9xMLrAQ7Y9ZqvFt1r8H63Fr4yvA/NyYW/F5q8XILyuctdLMItNKjAr+4fuzIt5uKCSsmUe0QU04kqI4tEQTkHQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.ui/10.0.1",
+      "path": "microsoft.aspnetcore.identity.ui/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3551,7 +3439,7 @@
         "buildTransitive/Microsoft.AspNetCore.Identity.UI.targets",
         "lib/net10.0/Microsoft.AspNetCore.Identity.UI.dll",
         "lib/net10.0/Microsoft.AspNetCore.Identity.UI.xml",
-        "microsoft.aspnetcore.identity.ui.10.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.identity.ui.10.0.8.nupkg.sha512",
         "microsoft.aspnetcore.identity.ui.nuspec",
         "staticwebassets/V4/css/site.css",
         "staticwebassets/V4/favicon.ico",
@@ -5124,10 +5012,10 @@
         "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll"
       ]
     },
-    "Microsoft.Data.Sqlite.Core/10.0.1": {
-      "sha512": "ACiR0/BskX5iKL0q9oYSdO46Igc2rD867Vd+RvM/0CU0+7dn4R40vIQPUWQkza5EGfc4Ts3DinnB8jo7WgQOTg==",
+    "Microsoft.Data.Sqlite.Core/10.0.8": {
+      "sha512": "26t7WDiEjjAls/sFpWvVEFDxt+7Q5VPt6+blU2Lafuj9L8PzAv/GtGV4cqVPtrhWbfD2BX/z2v8hD1qXYtK6Aw==",
       "type": "package",
-      "path": "microsoft.data.sqlite.core/10.0.1",
+      "path": "microsoft.data.sqlite.core/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5137,7 +5025,7 @@
         "lib/net8.0/Microsoft.Data.Sqlite.xml",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
-        "microsoft.data.sqlite.core.10.0.1.nupkg.sha512",
+        "microsoft.data.sqlite.core.10.0.8.nupkg.sha512",
         "microsoft.data.sqlite.core.nuspec"
       ]
     },
@@ -5171,10 +5059,10 @@
         "microsoft.dotnet.scaffolding.shared.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/10.0.3": {
-      "sha512": "CDEImwD4A7BseABJMCpLZnhfFjmPY/bHwhhS70elc6gLI/bYUEOhxWt7PmaNGYGhIEzOnStlCy5QcVb+8dod5Q==",
+    "Microsoft.EntityFrameworkCore/10.0.8": {
+      "sha512": "EJx+fIBMgBlgD+ublKCn+GTOJkw3UqV7xOjYWBRVdUYyIm8UfvAsmSOPFiIInsWTHyMEYUJ9gCJY1jwX+6UB7w==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/10.0.3",
+      "path": "microsoft.entityframeworkcore/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5183,14 +5071,14 @@
         "buildTransitive/net10.0/Microsoft.EntityFrameworkCore.props",
         "lib/net10.0/Microsoft.EntityFrameworkCore.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.10.0.3.nupkg.sha512",
+        "microsoft.entityframeworkcore.10.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/10.0.3": {
-      "sha512": "c7Uoz381xnMHNBRB8eHRhGgzUtXbgddlbODhwZRrTSzZWDharp3RkJsFwhxyESbeXhCqmML7VdvjMQ7uu+HreA==",
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.8": {
+      "sha512": "jbKDXWPZQhuPHygMnwzNOqxBADVcpRVytcKYZsA++QqhPkpF93Ta8o5mbJQGrARSjlkr9WtOaADV97EDMOZ7DA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/10.0.3",
+      "path": "microsoft.entityframeworkcore.abstractions/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5198,21 +5086,21 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.10.0.3.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.10.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/10.0.3": {
-      "sha512": "lVABgJTyTUNE7Bi0bSu4dWHiCHIXEGzTh/kLh0N07IgU/tIKwTeBPp8tgV4x2iKj4h7iPLo8oXzyHmLDGtAE1g==",
+    "Microsoft.EntityFrameworkCore.Analyzers/10.0.8": {
+      "sha512": "M3BZ8JH8rB6BE7dO2g9iVbrHLnEz9wMXT6q+tDR6Nq3gyP3KmBj5OTiZGxyF3vesjOQNKanYoPGSNBR4kR2llg==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/10.0.3",
+      "path": "microsoft.entityframeworkcore.analyzers/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "docs/PACKAGE.md",
-        "microsoft.entityframeworkcore.analyzers.10.0.3.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.10.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
@@ -5232,10 +5120,10 @@
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/10.0.3": {
-      "sha512": "Pmh60OK9neVr/M0FJwm9hlzm2bD4Kd65SID8E6SP5c90tExNgXwORrlEWl0oGU/ig9ifpNN4PSpIrnHNozlT5w==",
+    "Microsoft.EntityFrameworkCore.Relational/10.0.8": {
+      "sha512": "UU3diAD2wwZveye2rnrwaF/wvJ9tm5iL2fuY9TTap6/iGQK1OO29M1BzXZRlRPVH/dByt5w/pISBSFtyR7hTqw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/10.0.3",
+      "path": "microsoft.entityframeworkcore.relational/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5243,28 +5131,28 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.10.0.3.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.10.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Sqlite/10.0.1": {
-      "sha512": "Pzdcceryj0URGathTixUGBPifO9liMZLFG+aRKWORJEnMlDZYs3DRnzI3u2KHCo5SI7PuRpGKoyfgdVG1Pjv4g==",
+    "Microsoft.EntityFrameworkCore.Sqlite/10.0.8": {
+      "sha512": "8BGSSKBDDBC8s6ye1Y2Ar1BToeZHLHOzUn0nAOng4Z+8dJ4KQKC/1qYFPgRYchDCOMQh98REHco8SrrMYsHuMQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlite/10.0.1",
+      "path": "microsoft.entityframeworkcore.sqlite/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "PACKAGE.md",
         "lib/net10.0/_._",
-        "microsoft.entityframeworkcore.sqlite.10.0.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlite.10.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlite.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Sqlite.Core/10.0.1": {
-      "sha512": "1rWpcHxWb5JbTPsJrrl2SN3qub3vajfr5zz8zu9fTFFHx1/GZdE8PkmdvFTKb11AGcmqjH8eA3siA+4bssjGfw==",
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/10.0.8": {
+      "sha512": "cFRBlY3sCoVX5JFDrRHQQHcbSms7CwBjjeuVEgQ4KP8WzPopgwNk3sJ0k7xKkIl0b9eUFJ0IR0aZwElT9154Ag==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlite.core/10.0.1",
+      "path": "microsoft.entityframeworkcore.sqlite.core/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5272,14 +5160,14 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Sqlite.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.Sqlite.xml",
-        "microsoft.entityframeworkcore.sqlite.core.10.0.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlite.core.10.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlite.core.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/10.0.3": {
-      "sha512": "q0fUFQ4PG4uhKwP+D5dsvlDQbwNpEfWsag3HaoGzkkKj+OQ90ya9W0HuFtwigwEEqc/H1SzDZYUAv7Ya1hh5ow==",
+    "Microsoft.EntityFrameworkCore.SqlServer/10.0.8": {
+      "sha512": "A+FLIsTH9l5DG2iD6QW6Mfwlvr+BjWme/jJ2hvwmmENTr7lR1UWmgCtKCjDYcHxqdAD15bb4PgQnSzw12DV/pw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/10.0.3",
+      "path": "microsoft.entityframeworkcore.sqlserver/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5287,21 +5175,22 @@
         "PACKAGE.md",
         "lib/net10.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/net10.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.10.0.3.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.10.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Tools/10.0.1": {
-      "sha512": "9vVI/GEf7C/URRBATChRxcG+YgYC0QGnIC+kkvqFWPAGA6mU30PTQABTlm4yICpU+rVgmwDulRKjz2mcKgP92g==",
+    "Microsoft.EntityFrameworkCore.Tools/10.0.8": {
+      "sha512": "bKtoSviiOUX75jM5bzSnBGPUjb2CfbBHdUDsjYv2X3/G3ZMMG18VpJMMAcP0tD8Xepu+wLl2soNJiWH6XxXWdQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.tools/10.0.1",
+      "path": "microsoft.entityframeworkcore.tools/10.0.8",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "docs/PACKAGE.md",
-        "microsoft.entityframeworkcore.tools.10.0.1.nupkg.sha512",
+        "lib/net8.0/_._",
+        "microsoft.entityframeworkcore.tools.10.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.tools.nuspec",
         "tools/EntityFrameworkCore.PS2.psd1",
         "tools/EntityFrameworkCore.PS2.psm1",
@@ -5309,17 +5198,17 @@
         "tools/EntityFrameworkCore.psm1",
         "tools/about_EntityFrameworkCore.help.txt",
         "tools/init.ps1",
-        "tools/net10.0/any/ef.dll",
-        "tools/net10.0/any/ef.runtimeconfig.json",
         "tools/net472/any/ef.exe",
         "tools/net472/win-arm64/ef.exe",
-        "tools/net472/win-x86/ef.exe"
+        "tools/net472/win-x86/ef.exe",
+        "tools/net8.0/any/ef.dll",
+        "tools/net8.0/any/ef.runtimeconfig.json"
       ]
     },
-    "Microsoft.Extensions.DependencyModel/10.0.2": {
-      "sha512": "DHXzj/FKmUDmhzw7AHbMXbNNcgO8Cb9PDbYOUDICjFAdIALy2WbC6pm+dFKiAUNtcYMucZu2iMVw1ef/sdcZFw==",
+    "Microsoft.Extensions.DependencyModel/10.0.8": {
+      "sha512": "vLyZVpxmduO2jx+76ggqnsA3m81kwMY3NkWciNTj5E+Nvqb0VihqCvQP89QsGONWp0AJwMZG+u9GzaCjDdFGNw==",
       "type": "package",
-      "path": "microsoft.extensions.dependencymodel/10.0.2",
+      "path": "microsoft.extensions.dependencymodel/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5340,15 +5229,15 @@
         "lib/net9.0/Microsoft.Extensions.DependencyModel.xml",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.xml",
-        "microsoft.extensions.dependencymodel.10.0.2.nupkg.sha512",
+        "microsoft.extensions.dependencymodel.10.0.8.nupkg.sha512",
         "microsoft.extensions.dependencymodel.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Embedded/10.0.1": {
-      "sha512": "PkrDqw6uwm4Y7IucI3PjqwhCeCoHno3hzOeEt0hUrFI+ccYBC0X3NfQbhkFG46TgclnCyUDStmgJzpie9T9ZlQ==",
+    "Microsoft.Extensions.FileProviders.Embedded/10.0.8": {
+      "sha512": "Wv9s0rmrmUEma268HCqqcHGgJI30O9mqMxnORZ/QFxtbjoTFEuMvnqL2kIfbZcOGD6XF6II47Hc6YSff0jKGkw==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.embedded/10.0.1",
+      "path": "microsoft.extensions.fileproviders.embedded/10.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5363,7 +5252,7 @@
         "lib/net462/Microsoft.Extensions.FileProviders.Embedded.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.xml",
-        "microsoft.extensions.fileproviders.embedded.10.0.1.nupkg.sha512",
+        "microsoft.extensions.fileproviders.embedded.10.0.8.nupkg.sha512",
         "microsoft.extensions.fileproviders.embedded.nuspec",
         "tasks/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.Manifest.Task.dll"
       ]
@@ -6116,61 +6005,6 @@
         "microsoft.visualstudio.web.codegenerators.mvc.nuspec"
       ]
     },
-    "MongoDB.Bson/3.6.0": {
-      "sha512": "lP+nZHej9cGFVsZSZQhSdBpD60q7a/ZiLBJcfd+CRWs36BHYteaMx6m1qaHCBWT1wft640r9I4SexqpMc3VscA==",
-      "type": "package",
-      "path": "mongodb.bson/3.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net472/MongoDB.Bson.dll",
-        "lib/net472/MongoDB.Bson.xml",
-        "lib/net6.0/MongoDB.Bson.dll",
-        "lib/net6.0/MongoDB.Bson.xml",
-        "lib/netstandard2.1/MongoDB.Bson.dll",
-        "lib/netstandard2.1/MongoDB.Bson.xml",
-        "mongodb.bson.3.6.0.nupkg.sha512",
-        "mongodb.bson.nuspec",
-        "packageIcon.png"
-      ]
-    },
-    "MongoDB.Driver/3.6.0": {
-      "sha512": "MzEVPUo9FJ3A2fvXdKr0vGllbiAGvpyLa8bU6bucKSKndraSjfgGDn/J+ek/SrUK4A3yozYZBkwJZm8qe36VmQ==",
-      "type": "package",
-      "path": "mongodb.driver/3.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net472/MongoDB.Driver.dll",
-        "lib/net472/MongoDB.Driver.xml",
-        "lib/net6.0/MongoDB.Driver.dll",
-        "lib/net6.0/MongoDB.Driver.xml",
-        "lib/netstandard2.1/MongoDB.Driver.dll",
-        "lib/netstandard2.1/MongoDB.Driver.xml",
-        "mongodb.driver.3.6.0.nupkg.sha512",
-        "mongodb.driver.nuspec",
-        "packageIcon.png"
-      ]
-    },
-    "MongoDB.EntityFrameworkCore/10.0.0": {
-      "sha512": "brb1VNR3wuAsqklREP5rkUTFFe/QFWI7l40Y/kGIiYsRES8IVsr2NQoNfalFt4Of9c2omEQYQrIPU1Hf3k+7PQ==",
-      "type": "package",
-      "path": "mongodb.entityframeworkcore/10.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "BREAKING-CHANGES.md",
-        "LICENSE.md",
-        "README.md",
-        "lib/net10.0/MongoDB.EntityFrameworkCore.dll",
-        "lib/net10.0/MongoDB.EntityFrameworkCore.xml",
-        "mongodb.entityframeworkcore.10.0.0.nupkg.sha512",
-        "mongodb.entityframeworkcore.nuspec",
-        "packageIcon.png"
-      ]
-    },
     "Mono.TextTemplating/3.0.0": {
       "sha512": "YqueG52R/Xej4VVbKuRIodjiAhV0HR/XVbLbNrJhCZnzjnSjgMJ/dCdV0akQQxavX6hp/LC6rqLGLcXeQYU7XA==",
       "type": "package",
@@ -6218,10 +6052,10 @@
         "packageIcon.png"
       ]
     },
-    "NuGet.Common/6.12.1": {
-      "sha512": "nk8nTdhQl4x2VaAQUvefI7DDYAuBDlE+OZZRffm50Qx5dUAEq8wkc5JIqrN2lTEohObHPI/SXyG2UFdMQkrdyg==",
+    "NuGet.Common/7.6.0": {
+      "sha512": "uyXLqkbbZmkMvdHOR23l1EHW2hRmULtzoG3Ocj84VpGptnNfkODVboHGJfDfcn9Gi9oUNDs8/VjL4FZcST6zVg==",
       "type": "package",
-      "path": "nuget.common/6.12.1",
+      "path": "nuget.common/7.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6229,16 +6063,16 @@
         "icon.png",
         "lib/net472/NuGet.Common.dll",
         "lib/net472/NuGet.Common.xml",
-        "lib/netstandard2.0/NuGet.Common.dll",
-        "lib/netstandard2.0/NuGet.Common.xml",
-        "nuget.common.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Common.dll",
+        "lib/net8.0/NuGet.Common.xml",
+        "nuget.common.7.6.0.nupkg.sha512",
         "nuget.common.nuspec"
       ]
     },
-    "NuGet.Configuration/6.12.1": {
-      "sha512": "IRwlY1379ZgJ0oEJvjD+lDuOhJ5S1fsU5n/bEC5/i0+N9bo2WIMDAdaQ/qIdyK/gMJ/YWS+++GSX6rN7luqEvg==",
+    "NuGet.Configuration/7.6.0": {
+      "sha512": "+bNj+YneC5CNg1vR+WZjLAakscJlsi0KhADZUgIJPn4pwh8/jeCUMC5ik5cpET/i+QOplDy7aJVTGkpdfrlPww==",
       "type": "package",
-      "path": "nuget.configuration/6.12.1",
+      "path": "nuget.configuration/7.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6246,9 +6080,9 @@
         "icon.png",
         "lib/net472/NuGet.Configuration.dll",
         "lib/net472/NuGet.Configuration.xml",
-        "lib/netstandard2.0/NuGet.Configuration.dll",
-        "lib/netstandard2.0/NuGet.Configuration.xml",
-        "nuget.configuration.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Configuration.dll",
+        "lib/net8.0/NuGet.Configuration.xml",
+        "nuget.configuration.7.6.0.nupkg.sha512",
         "nuget.configuration.nuspec"
       ]
     },
@@ -6271,10 +6105,10 @@
         "nuget.dependencyresolver.core.nuspec"
       ]
     },
-    "NuGet.Frameworks/6.12.1": {
-      "sha512": "kPaRD5RJC0ByUg+yGX6bDz5XHMI7OYmQwP8kbtef+vZ+csj/VDb5Bwas4ChxwhoAbI8lEvwP5/3aViQPpgNBow==",
+    "NuGet.Frameworks/7.6.0": {
+      "sha512": "rJ7QtKN45XzLXCrMATve6eFLiUyUGEkA1rFSb6U6Fw6laM4hEAcKOrcdbgWlcFUlCK2158qP1LF00hg/ivF3nw==",
       "type": "package",
-      "path": "nuget.frameworks/6.12.1",
+      "path": "nuget.frameworks/7.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6282,9 +6116,9 @@
         "icon.png",
         "lib/net472/NuGet.Frameworks.dll",
         "lib/net472/NuGet.Frameworks.xml",
-        "lib/netstandard2.0/NuGet.Frameworks.dll",
-        "lib/netstandard2.0/NuGet.Frameworks.xml",
-        "nuget.frameworks.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Frameworks.dll",
+        "lib/net8.0/NuGet.Frameworks.xml",
+        "nuget.frameworks.7.6.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
       ]
     },
@@ -6305,10 +6139,10 @@
         "nuget.librarymodel.nuspec"
       ]
     },
-    "NuGet.Packaging/6.12.1": {
-      "sha512": "6s5NO3VNX6fIx6GwuWZtIsal9W1xkelYd3Vg2KUAg1zGqnKC3wB5IZlombvVGVGcwyl/A+iDvpUwSvgeDoB3wA==",
+    "NuGet.Packaging/7.6.0": {
+      "sha512": "TDp+qHzRBy1zjwiJGCbfpdO0jMG5hH/bk7p1EABLKv9p5SIykDPGnbuYXm2iZO0QJ/H+hOI/vo5LfqM17Q+G0w==",
       "type": "package",
-      "path": "nuget.packaging/6.12.1",
+      "path": "nuget.packaging/7.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6316,11 +6150,9 @@
         "icon.png",
         "lib/net472/NuGet.Packaging.dll",
         "lib/net472/NuGet.Packaging.xml",
-        "lib/net5.0/NuGet.Packaging.dll",
-        "lib/net5.0/NuGet.Packaging.xml",
-        "lib/netstandard2.0/NuGet.Packaging.dll",
-        "lib/netstandard2.0/NuGet.Packaging.xml",
-        "nuget.packaging.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Packaging.dll",
+        "lib/net8.0/NuGet.Packaging.xml",
+        "nuget.packaging.7.6.0.nupkg.sha512",
         "nuget.packaging.nuspec"
       ]
     },
@@ -6343,10 +6175,10 @@
         "nuget.projectmodel.nuspec"
       ]
     },
-    "NuGet.Protocol/6.12.1": {
-      "sha512": "VBN7OtG/Y9Rnj1WT3G8X88ZHu5Pq+yzca5Z6OI/FWXcENVAQkUl0ml6Cv8ghOqYyiuvnObGDV9oWLD/bIuVtDw==",
+    "NuGet.Protocol/7.6.0": {
+      "sha512": "Ccb9dJG9hW0FdHFjXoHmhJBBJRYSCeSJArLdZjyZj6/FEAIKezLn75KFQNrTPE5UiAp4HVrjBizufZ/0IXhfKQ==",
       "type": "package",
-      "path": "nuget.protocol/6.12.1",
+      "path": "nuget.protocol/7.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6354,18 +6186,16 @@
         "icon.png",
         "lib/net472/NuGet.Protocol.dll",
         "lib/net472/NuGet.Protocol.xml",
-        "lib/net5.0/NuGet.Protocol.dll",
-        "lib/net5.0/NuGet.Protocol.xml",
-        "lib/netstandard2.0/NuGet.Protocol.dll",
-        "lib/netstandard2.0/NuGet.Protocol.xml",
-        "nuget.protocol.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Protocol.dll",
+        "lib/net8.0/NuGet.Protocol.xml",
+        "nuget.protocol.7.6.0.nupkg.sha512",
         "nuget.protocol.nuspec"
       ]
     },
-    "NuGet.Versioning/6.12.1": {
-      "sha512": "fJ6rFYANDnohFsdpaY79FvrJxI6murmoOxXz6nZlf819F48+IBKMnAIg3oIBRtZq5y498ObMtKnro5IitvizUg==",
+    "NuGet.Versioning/7.6.0": {
+      "sha512": "TpZxfOoQBQk/0r/2uc1A1qNYIKHkJGgOrWP+ax3nsNAUN/1BOQMDrgmGADogSA4hOXH1ZJiyeYg4Ca+vUW0sEg==",
       "type": "package",
-      "path": "nuget.versioning/6.12.1",
+      "path": "nuget.versioning/7.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6373,46 +6203,10 @@
         "icon.png",
         "lib/net472/NuGet.Versioning.dll",
         "lib/net472/NuGet.Versioning.xml",
-        "lib/netstandard2.0/NuGet.Versioning.dll",
-        "lib/netstandard2.0/NuGet.Versioning.xml",
-        "nuget.versioning.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Versioning.dll",
+        "lib/net8.0/NuGet.Versioning.xml",
+        "nuget.versioning.7.6.0.nupkg.sha512",
         "nuget.versioning.nuspec"
-      ]
-    },
-    "SharpCompress/0.30.1": {
-      "sha512": "XqD4TpfyYGa7QTPzaGlMVbcecKnXy4YmYLDWrU+JIj7IuRNl7DH2END+Ll7ekWIY8o3dAMWLFDE1xdhfIWD1nw==",
-      "type": "package",
-      "path": "sharpcompress/0.30.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net461/SharpCompress.dll",
-        "lib/net5.0/SharpCompress.dll",
-        "lib/netcoreapp3.1/SharpCompress.dll",
-        "lib/netstandard2.0/SharpCompress.dll",
-        "lib/netstandard2.1/SharpCompress.dll",
-        "sharpcompress.0.30.1.nupkg.sha512",
-        "sharpcompress.nuspec"
-      ]
-    },
-    "Snappier/1.0.0": {
-      "sha512": "rFtK2KEI9hIe8gtx3a0YDXdHOpedIf9wYCEYtBEmtlyiWVX3XlCNV03JrmmAi/Cdfn7dxK+k0sjjcLv4fpHnqA==",
-      "type": "package",
-      "path": "snappier/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "COPYING.txt",
-        "lib/net5.0/Snappier.dll",
-        "lib/net5.0/Snappier.xml",
-        "lib/netcoreapp3.0/Snappier.dll",
-        "lib/netcoreapp3.0/Snappier.xml",
-        "lib/netstandard2.0/Snappier.dll",
-        "lib/netstandard2.0/Snappier.xml",
-        "lib/netstandard2.1/Snappier.dll",
-        "lib/netstandard2.1/Snappier.xml",
-        "snappier.1.0.0.nupkg.sha512",
-        "snappier.nuspec"
       ]
     },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.11": {
@@ -6910,37 +6704,19 @@
         "system.security.cryptography.protecteddata.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "ZstdSharp.Port/0.7.3": {
-      "sha512": "U9Ix4l4cl58Kzz1rJzj5hoVTjmbx1qGMwzAcbv1j/d3NzrFaESIurQyg+ow4mivCgkE3S413y+U9k4WdnEIkRA==",
-      "type": "package",
-      "path": "zstdsharp.port/0.7.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net461/ZstdSharp.dll",
-        "lib/net5.0/ZstdSharp.dll",
-        "lib/net6.0/ZstdSharp.dll",
-        "lib/net7.0/ZstdSharp.dll",
-        "lib/netcoreapp3.1/ZstdSharp.dll",
-        "lib/netstandard2.0/ZstdSharp.dll",
-        "lib/netstandard2.1/ZstdSharp.dll",
-        "zstdsharp.port.0.7.3.nupkg.sha512",
-        "zstdsharp.port.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 10.0.1",
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 10.0.1",
-      "Microsoft.AspNetCore.Identity.UI >= 10.0.1",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.3",
-      "Microsoft.EntityFrameworkCore.Sqlite >= 10.0.1",
-      "Microsoft.EntityFrameworkCore.Tools >= 10.0.1",
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 10.0.8",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 10.0.8",
+      "Microsoft.AspNetCore.Identity.UI >= 10.0.8",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.8",
+      "Microsoft.EntityFrameworkCore.Sqlite >= 10.0.8",
+      "Microsoft.EntityFrameworkCore.Tools >= 10.0.8",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 10.0.2",
-      "MongoDB.Driver >= 3.6.0",
-      "MongoDB.EntityFrameworkCore >= 10.0.0"
+      "NuGet.Packaging >= 7.6.0",
+      "NuGet.Protocol >= 7.6.0"
     ]
   },
   "packageFolders": {
@@ -6950,11 +6726,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amand\\OneDrive\\Dokument\\Webbutvekling 2024-2026\\.NET\\projekt-mtg\\projekt-mtg.csproj",
+      "projectUniqueName": "D:\\projekt-mtg\\projekt-mtg.csproj",
       "projectName": "projekt-mtg",
-      "projectPath": "C:\\Users\\amand\\OneDrive\\Dokument\\Webbutvekling 2024-2026\\.NET\\projekt-mtg\\projekt-mtg.csproj",
+      "projectPath": "D:\\projekt-mtg\\projekt-mtg.csproj",
       "packagesPath": "C:\\Users\\amand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amand\\OneDrive\\Dokument\\Webbutvekling 2024-2026\\.NET\\projekt-mtg\\obj\\",
+      "outputPath": "D:\\projekt-mtg\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6996,39 +6772,41 @@
         "dependencies": {
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[10.0.1, )"
+            "version": "[10.0.8, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[10.0.1, )"
+            "version": "[10.0.8, )"
           },
           "Microsoft.AspNetCore.Identity.UI": {
             "target": "Package",
-            "version": "[10.0.1, )"
+            "version": "[10.0.8, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
-            "version": "[10.0.3, )"
+            "version": "[10.0.8, )"
           },
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
-            "version": "[10.0.1, )"
+            "version": "[10.0.8, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
-            "version": "[10.0.1, )"
+            "version": "[10.0.8, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[10.0.2, )"
           },
-          "MongoDB.Driver": {
+          "NuGet.Packaging": {
             "target": "Package",
-            "version": "[3.6.0, )"
+            "version": "[7.6.0, )"
           },
-          "MongoDB.EntityFrameworkCore": {
+          "NuGet.Protocol": {
             "target": "Package",
-            "version": "[10.0.0, )"
+            "version": "[7.6.0, )"
           }
         },
         "imports": [

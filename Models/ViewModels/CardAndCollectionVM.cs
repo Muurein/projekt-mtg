@@ -1,20 +1,23 @@
-using Projekt_mtg.Models;
-using Projekt_mtg.Models.ViewModels;
 
-//för att kunna lägga till Card i Collection, med andra ord för att kunna lägga till data från båda modellerna
+//so user can add Card to Collection, eg to be able to add data from both CardModel and CollectionModel
+using System.ComponentModel.DataAnnotations;
+
 namespace Projekt_mtg.Models.ViewModels
 {
     public class CardAndCollectionVM
 {
     //Card-data
-    //public Card Card { get; set; } = new Card();
+    [Required]
     public string CardName { get; set; } = "";
 
     //Collection-data
+    [Required]
     public int OwnedQuantity { get; set; }
 
+    [Required]
     public int WishlistQuantity { get; set; }
 
+    [Required]
     public int InDeckQuantity { get; set; }
 }
 }

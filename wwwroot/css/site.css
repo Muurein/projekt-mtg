@@ -9,6 +9,59 @@ body {
   font-family: Open Sans, Arial, Helvetica, sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
+/*******************************************************************************************************************************************
+  SEARCH FIELD
+*******************************************************************************************************************************************/
+.search-field {
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+}
+
+.search-field form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.search-field form label {
+  text-align: center;
+}  
+
+.search-field form input {
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+}
+
+#searchString {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.button {
+  padding: 0.5em;
+  border: none;
+  border-radius: 15px;
+  width: 80px;
+  height: 40px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
+.general-button:hover {
+  background-color: rgb(241, 203, 131);
+}
+
+#search-button {
+  margin-right: auto;
+  margin-left: auto;
+}
 
 /*******************************************************************************************************************************************
   CARDS
@@ -26,8 +79,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  margin-top: 50px;
   margin-bottom: 60px;
+  text-align: center;
 }
 
 .card-name-div {
@@ -49,27 +103,12 @@ body {
   font-size: 22px;
 }
 
-.button {
-  padding: 0.5em;
-  border: none;
-  border-radius: 15px;
-  width: 80px;
-  height: 40px;
-  background-color: white;
-  color: black;
-  text-decoration: none;
-}
-
-.update-button {  /* VARFÖR ÄNDRAR NI INTE ER JÄVLA STORLEK FÖR */
-  /* width: 80px;
-  height: 40px; */
+.update-button {  
   background-color: #35A4B1;
   color: white;
 }
 
 .remove-button {
-  /* width: 80px;
-  height: 40px; */
   background-color: #933542;
   color: white;
 }
@@ -82,10 +121,6 @@ body {
 .remove-button:hover {
   background-color: #fab7c0;
   color: black;
-}
-
-.general-button:hover {
-  background-color: rgb(241, 203, 131);
 }
 
 .card-buttons {
@@ -126,14 +161,39 @@ body {
   color: white;
 }
 
-.green-button:hover {
+.green-button:hover,
+.add-deck-button:hover {
   background-color: rgb(169, 224, 194);
   color: black;
 }
 
-.back-button {
+.general-button {
   padding-left: 1em;
   padding-right: 1em;
+}
+
+#back-button {
+  width: 120px
+}
+
+.add-deck-button {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 140px;
+}
+
+
+.add-deck-card-button {
+  width: 95px;
+}
+
+
+.deck-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -156,4 +216,24 @@ body {
   .card-image:hover {
       transform: scale(1.7);
   }
+
+  .search-field form input {
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+  }
+
+  .crud-div {
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .button-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    } 
+
+
 }

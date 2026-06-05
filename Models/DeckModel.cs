@@ -10,7 +10,7 @@ namespace Projekt_mtg.Models
 
         public DeckFormat Format { get; set; }
 
-        //ett kort kan vara finnas på en rad i leken
+        //a card can only exist on one row at a time in a deck
         public ICollection<DeckCard> DeckCards { get; set; } = new List<DeckCard>(); 
     }
 }

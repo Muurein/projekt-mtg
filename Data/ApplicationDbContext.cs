@@ -6,7 +6,6 @@ namespace projekt_mtg.Data;
 
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext(options)
 {
-        //modellerna i databasen (Card) och colletion (Cards)
         public DbSet<Card> Cards { get; set; }
 
         public DbSet<Collection> Collections { get; set; }
@@ -15,11 +14,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 
         public DbSet<DeckCard> DeckCards { get; set; }
 
-
-        public DbSet<User> CollUsers { get; set; }
-
         
-        //definiera relationer för ökad tydlighet
+        //defines relations
         protected override void OnModelCreating(ModelBuilder builder)
         {
                 base.OnModelCreating(builder);
@@ -29,7 +25,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                         .HasIndex(c => c.Name)
                         .IsUnique();
 
-                //defines card/collection-realtion
+                //defines card/collection-relation
                 builder.Entity<Collection>()
                         .HasOne(c => c.Card)
                         .WithMany(c => c.Collections)
@@ -52,12 +48,11 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                         .WithMany()
                         .HasForeignKey(dc => dc.CardId);
                 
-                //same user can't have two rows with the same card
+                //no duplicate card rows within same deck
                 builder.Entity<DeckCard>()
                         .HasIndex(dc => new { dc.DeckId, dc.CardId })
                         .IsUnique();
         }
-        
 }
 
 

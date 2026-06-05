@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Projekt_mtg.Models;
 using projekt_mtg.Data;
@@ -14,7 +9,8 @@ namespace projekt_mtg.Controllers
 {
     [Authorize]
     public class CollectionController : Controller
-    {
+    {   
+        //connects to database
         private readonly ApplicationDbContext _context;
 
         public CollectionController(ApplicationDbContext context)
@@ -22,13 +18,15 @@ namespace projekt_mtg.Controllers
             _context = context;
         }
 
-        // GET: Mtg
+        // GET: Collection
+        //shows the collection, eg all the cards the user owns or has in decks
         public async Task<IActionResult> Index(string searchString)
         {   
             //get user's id
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             //creates database-query to see if user has searched for anything and then handles the search query the user might have put in
+            //and only show the current user's collection
             var query = _context.Collections
                 .Include(c => c.Card)
                 .Where(c => c.UserId == userId && (
@@ -53,16 +51,18 @@ namespace projekt_mtg.Controllers
             return View(collections); 
         }
 
-        // GET: Mtg/Details/5
+        // GET: Collection/Details/5
         public async Task<IActionResult> Details(int? id)
-        {
+        {   
+            //in case no ID was provided
             if (id == null)
             {
                 return NotFound();
             }
 
-            var collection = await _context.Collections
-                .FirstOrDefaultAsync(m => m.Id == id);
+            //find collection by ID
+            var collection = await _context.Collections.FirstOrDefaultAsync(m => m.Id == id);
+
             if (collection == null)
             {
                 return NotFound();
@@ -71,15 +71,9 @@ namespace projekt_mtg.Controllers
             return View(collection);
         }
 
-        // GET: Mtg/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
 
-        // POST: Mtg/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Collection/Create
+        //creates new collection entry
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,CardId,UserId,OwnedQuantity,WishlistQuantity,InDeckQuantity")] Collection collection)
@@ -87,35 +81,41 @@ namespace projekt_mtg.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(collection);
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(collection);
         }
 
-        // GET: Mtg/Edit/5
+        // GET: Collection/Edit/5
+        //show the edit form
         public async Task<IActionResult> Edit(int? id)
         {
+            //in case no id was provided
             if (id == null)
             {
                 return NotFound();
             }
 
             var collection = await _context.Collections.FindAsync(id);
+
+            //if the entry happens to not exist
             if (collection == null)
             {
                 return NotFound();
             }
+
             return View(collection);
         }
 
-        // POST: Mtg/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Collection/Edit/5
+        //edit quantities
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,OwnedQuantity,WishlistQuantity,InDeckQuantity")] Collection collection)
-        {
+        {   
+            //makes sure that the right entry is edited
             if (id != collection.Id)
             {
                 return NotFound();
@@ -140,6 +140,7 @@ namespace projekt_mtg.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
+                    //if collection entry was deleted by other user
                     if (!CollectionExists(collection.Id))
                     {
                         return NotFound();
@@ -154,7 +155,8 @@ namespace projekt_mtg.Controllers
             return View(collection);
         }
 
-        // GET: Mtg/Delete/5
+        // GET: Collection/Delete/5
+        //delete-page
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -162,8 +164,8 @@ namespace projekt_mtg.Controllers
                 return NotFound();
             }
 
-            var collection = await _context.Collections
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var collection = await _context.Collections.FirstOrDefaultAsync(m => m.Id == id);
+
             if (collection == null)
             {
                 return NotFound();
@@ -172,21 +174,25 @@ namespace projekt_mtg.Controllers
             return View(collection);
         }
 
-        // POST: Mtg/Delete/5
+        // POST: Collection/Delete/5
+        //actually deletes collection from database
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var collection = await _context.Collections.FindAsync(id);
+
             if (collection != null)
             {
                 _context.Collections.Remove(collection);
             }
 
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
+        //does the collection actually exist?
         private bool CollectionExists(int id)
         {
             return _context.Collections.Any(e => e.Id == id);
@@ -194,33 +200,44 @@ namespace projekt_mtg.Controllers
 
 
         //Wishlist
+        //cards the user wants
         public async Task<IActionResult> Wishlist(string searchString)
         {
-        //get user's id
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //get user's id
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-        //creates database-query to see if user has searched for anything and then handles the search query the user might have put in
-        var query = _context.Collections
-            .Include(c => c.Card)
-            .Where(c => c.UserId == userId && (
-                c.WishlistQuantity > 0
-            ));
+            //only show current user's cards
+            //only show cards on wishlist
+            var query = _context.Collections
+                .Include(c => c.Card)
+                .Where(c => c.UserId == userId && (
+                    c.WishlistQuantity > 0
+                ));
 
-        if(!string.IsNullOrWhiteSpace(searchString))
-        {
-            searchString = searchString.ToUpper();
+            //creates database-query to see if user has searched for anything and then handles the search query the user might have put in
+            if(!string.IsNullOrWhiteSpace(searchString))
+            {
+                searchString = searchString.ToUpper();
 
-                query = query.Where(c =>
-                    (c.Card!.Name ?? "").ToUpper().Contains(searchString) ||
-                    (c.Card.ManaCost ?? "").ToUpper().Contains(searchString) ||
-                    (c.Card.TypeLine ?? "").ToUpper().Contains(searchString) ||
-                    (c.Card.Rarity ?? "").ToUpper().Contains(searchString)
-                );
+                    query = query.Where(c =>
+                        (c.Card!.Name ?? "").ToUpper().Contains(searchString) ||
+                        (c.Card.ManaCost ?? "").ToUpper().Contains(searchString) ||
+                        (c.Card.TypeLine ?? "").ToUpper().Contains(searchString) ||
+                        (c.Card.Rarity ?? "").ToUpper().Contains(searchString)
+                    );
+            }
+
+            var wishlist = await query.ToListAsync();
+
+            return View(wishlist);
         }
 
-        var wishlist = await query.ToListAsync();
-
-        return View(wishlist);
-}
+        public IActionResult TestUser()
+        {
+            return Content(
+                $"Authenticated: {User.Identity?.IsAuthenticated}\n" +
+                $"UserId: {User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier)}"
+            );
+        }
     }
 }

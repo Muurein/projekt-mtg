@@ -5,21 +5,26 @@
 }
 
 <main>
-    <h1>@Model.Name</h1>
+    <h1>Add Card to Deck</h1>
 
-    <p>@Model.Format</p>
-
-    <a class="green-button button" asp-action="AddCard" asp-route-deckId="@Model.Id">Add Card</a>
+    <div class="deck-info">
+        <h2>@Model.Name</h2>
+        <p>@Model.Format</p>
+        <a class="green-button button add-deck-card-button" asp-action="AddCard" asp-route-deckId="@Model.Id">Add Card</a>
+        <div class="form-group button-group">
+            <a class="general-button button" id="back-button" asp-action="Index">Back to List</a>
+        </div>
+    </div>
 
     <div class="search-field">
         <form method="get">
             <input type="hidden" name="id" value="@Model.Id" />
             
-            <label for="searchString">Search:</label>
+            <label for="searchString">Search amongst the cards in your deck:</label>
             <br />
             <input class="form-input" type="text" id="searchString" name="searchString" />
             <br />
-            <button class="general-button button" type="submit">Search</button>
+            <button class="general-button button crud-button" id="search-button" type="submit">Search</button>
         </form>
     </div>
 
