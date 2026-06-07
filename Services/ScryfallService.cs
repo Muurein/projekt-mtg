@@ -53,29 +53,6 @@ namespace Projekt_mtg.Services
             };
         }
 
-        // //GET: search for a card - autocomplete card names
-        // public async Task<List<string>> SearchCards(string query)
-        // {
-        //     var url = $"https://api.scryfall.com/cards/autocomplete?q={Uri.EscapeDataString(query)}";
-
-        //     var response = await _httpClient.GetAsync(url);
-
-        //     if(!response.IsSuccessStatusCode)
-        //     {
-        //         return new List<string>();
-        //     }
-
-        //     var json = await response.Content.ReadAsStringAsync();
-
-        //     using JsonDocument doc = JsonDocument.Parse(json);
-
-        //     return doc.RootElement
-        //         .GetProperty("data")
-        //         .EnumerateArray()
-        //         .Select(x => x.GetString()!)
-        //         .ToList();
-        // }
-
 
         //GET: random cards (used for get 12 random card for home page)
         public async Task<CardDto?> RandomCardHome()

@@ -244,14 +244,5 @@ namespace projekt_mtg.Controllers
             return _context.Cards.Any(e => e.Id == id);
         }
 
-
-        //search for card, matches card name with data from Scryfall
-        // [HttpGet]
-        // public async Task<IActionResult> SearchCardNames(string query)
-        // {
-        //     var results = await _scryfallService.SearchCards(query);
-
-        //     return Json(results);
-        // }
     }
 }
