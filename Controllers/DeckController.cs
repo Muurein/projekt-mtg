@@ -4,6 +4,7 @@ using Projekt_mtg.Models;
 using projekt_mtg.Data;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Projekt_mtg.Services;
 
 namespace projekt_mtg.Controllers
 {
@@ -12,10 +13,12 @@ namespace projekt_mtg.Controllers
     {   
         //connects to database
         private readonly ApplicationDbContext _context;
+        private readonly ScryfallService _scryfallService;
 
-        public DeckController(ApplicationDbContext context)
+        public DeckController(ApplicationDbContext context, ScryfallService scryfallService)
         {
             _context = context;
+            _scryfallService = scryfallService;
         }
 
         // GET: Deck
@@ -239,7 +242,6 @@ namespace projekt_mtg.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddCard(int deckId, string cardName, int quantity, bool IsCommander)
         {
-
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var deck = await _context.Decks.FirstOrDefaultAsync(d => d.Id == deckId && d.UserId == userId);
@@ -247,19 +249,42 @@ namespace projekt_mtg.Controllers
             if(deck == null)
             {
                 return NotFound();
-}
-            var card = await _context.Cards.FirstOrDefaultAsync(c => c.Name == cardName);
+            } 
 
+            //does card already exist in database? Use already owned quantity first
+            var card = await _context.Cards.FirstOrDefaultAsync(c => c.Name.ToUpper() == cardName.Trim().ToUpper());
+
+
+            //if card doesn't exist locally, get from scryfall
             if(card == null)
             {
-                ModelState.AddModelError("", "Card not found");
-                ViewBag.DeckId = deckId;
-                return View();
+                var scryfallCard = await _scryfallService.GetCardByName(cardName);
+
+                if(scryfallCard == null)
+                {
+                    ModelState.AddModelError("cardName", $"The card could not be found");
+                    ViewBag.DeckId = deckId;
+                    return View();
+                }
+
+                //then add card
+                card = new Card
+                {
+                    Name = scryfallCard.Name,
+                    ManaCost = scryfallCard.ManaCost,
+                    TypeLine = scryfallCard.TypeLine,
+                    OracleText = scryfallCard.OracleText,
+                    Rarity = scryfallCard.Rarity,
+                    ImageUri = scryfallCard.ImageUri
+                };
+
+                _context.Cards.Add(card);
+                await _context.SaveChangesAsync();
             }
 
+
             //does card already belong in deck? Yes - update quantity. No - create new row
-            var existingCard = await _context.DeckCards
-                .FirstOrDefaultAsync(dc => dc.DeckId == deckId && dc.CardId == card.Id);
+            var existingCard = await _context.DeckCards.FirstOrDefaultAsync(dc => dc.DeckId == deckId && dc.CardId == card.Id);
 
             if(existingCard != null)
             {
@@ -285,5 +310,29 @@ namespace projekt_mtg.Controllers
             return RedirectToAction(nameof(Details), new { id = deckId });
 
         }
+
+        //DELETE: remove deckCard from deck
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveCard(int deckCardId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var deckCard = await _context.DeckCards.Include(dc => dc.Deck).FirstOrDefaultAsync(dc => dc.Id == deckCardId && dc.Deck.UserId == userId);
+
+            if(deckCard == null)
+            {
+                return NotFound();
+            }
+
+            int deckId = deckCard.DeckId;
+
+            _context.DeckCards.Remove(deckCard);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Details), new { id = deckId });
+        }
+
     }
 }

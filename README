@@ -1,65 +1,49 @@
-Packages: 
-Microsoft.EntityFrameworkCore.SqlServer
-Microsoft.VisualStudio.Web.CodeGeneration.Design
-aspnet-codegenerator
+# En "Magic: the Gathering"-Card Manager
+En webbapplikation byggt i ASP .NET Core MVC med Entity Framework Core, SQLite, Identity och Scryfall API.
+
+Här kan användare logga in för att:
+- registrera konto
+- logga in
+- lägga till och hantera kort i sin samling
+- lägga till och hantera kort i sin önskelista
+- bygga lekar efter de två spelformaten Standard och Commander
+- söka efter kort med Scryfall API
 
 
-mail: amanda.l.thim@gmail.com
-lösen: mangan + stor bokstav
+## Sätt upp projektet
+Projektet använder SQLite tillsammans med Entity Framework Core.
+
+Skapa databasen med kommandot: dotnet ef database update
+
+Connection-sträng finns i appssettings.json.
+
+Scryfall API kräver ingen API-nyckel.
 
 
-Vill att vyn när man klickar på "My Collection" ska vara Mtg, med info som titel, kvanititet och status synliga. 
-All annan info (color, manaValue, type, description och rarity) ska synas på kortet men inte skrivas ut
-När man söker efter ett kort man dock kunna söka på title, color, manaValue, type, description och rarity (samt status)
+## Starta projektet 
+Starta projketet med dotnet run
 
-Det ska bara finnas en collection per User
-Cards i Collection kan ha status owned, wishlist och in_deck
-Cards som har status wishlist ska synas under sidan Wishlist
+Skapa ett konto via Register-fliken i huvudmenyn
 
-Man lägger till ett Card till Collection via formulär
-Med hjälp av CardAndCollectionVM ska man samtidigt kunna fylla i statusen på kortet
-Card-formulär och CardAndCollectionVM-formulär ska med andra ord visas för användaren som ett enda formulär
+## Arkitektur
+- Models hanterar datamodeller
+- Controllers hanterar logik och användarförfrågningar
+- Views ansvarar för användargränssnittet
+- Entity Framework Core används för databasåtkomst
+- ASP.NET Core Identity används för autentisering
+- Scryfall API används för hämtning av kortdata
+
+## Funktioner
+- CRUD för samling
+- CRUD för lekar
+- Önskelista
+- Sökning efter kort, både lokalt och via Scryfall API
+- Inloggning med Identity
 
 
-Nästa steg:
-- ändra styling på navigering
-- felmeddelanden om man inte fyllt i alla värden rätt när man lägger till kort
-- felmeddelande om kortet inte finns
-- README
-- footer
-- kunna lägga till kort i lek UTAN ATT NÅGOT GÅR FEL
+## Endpoints mot Scryfall API
+- https://api.scryfall.com/cards/random - för att visa upp slumpmässiga kort i det publika gränssnittet på startsidan.
+- https://api.scryfall.com/cards/search - för att låta användare söka efter kort.
+- https://api.scryfall.com/cards/named för att applikaitonen ska skicka det exakta namnet till Scryfall så Scryfall hitta kortet och veta vad för data den ska skicka tillbaka.
 
 
-Ska göras:
-- se til latt man faktiskt får ett mail om att byta lösenord - inte MVP
-- styla kommande Remove - inte MVP
-- se till att man ska kunna ta bort kvantiteter med Remove och inte bara ta bort hela kortet på ett klick, kortet ska bara försvinna om det står 0 i värde  - inte MVP
-
-Gjort:
-- databas i SQLite
-- controller för Card (MtgCard)
-- controller för Collection (Mtg)
-- model för Card
-- model för Collection
-- model för Set
-- model för User
-- view för Card 
-- view för Collection 
-- få över Scryfall API
-- skapa och sätt ihop Card-formuläret och CardAndCollectionVM-formuläret
-- få inloggning att fungera
-- visa kortinfo från Scryfall API
-- kunna lägga till Card i Collection
-- sökfunktion på kort i Collection
-- bara bild, titel och status ska synas i Collection
-- i Collection ska status In deck synas + hur många i deck
-- det ska inte finnas en bildlänk utan en bild
-- "'Card' i nav ska istället kallas 'Add card' och enbart ta användaren till pages->card->Create.cshtml"
-- styla Add Cards
-- styla Update
-- skapa vy som heter Decks i menyn där man ska klicka på en knapp som "Add Deck" sopm tar en till Create.cshtml, sen syns den med en "förstasida" på Decks-sidan (räcker med en siffra eller så). 
-  Sedan kan man kunna ta sig in leken genom att klicka på den, och där få en sida som visar korten på samma sätt som i My Collection. Där ska man kunna sök OCH lägga till nya DeckCards.
-  Commandern ska alltid ligga först (helst) och som MVP (minimum viable product) kanske ha en liten färgad ruta runt sig för att visa att det är Commandern (om det är en Commander-lek)
-- få in kort från Scryfall på startsidan ELLER förklara sidan där
-- styla search-bar
-- kunna bygga lekar (lägg till InDeck)

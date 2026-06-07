@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("projekt-mtg")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+529c80826c932904bceb67c478404ad5292a8e6a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bfdee689b2cb55aefe3a13a83fd4bc86f35c060")]
 [assembly: System.Reflection.AssemblyProductAttribute("projekt-mtg")]
 [assembly: System.Reflection.AssemblyTitleAttribute("projekt-mtg")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

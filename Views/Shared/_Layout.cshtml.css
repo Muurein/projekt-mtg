@@ -12,13 +12,13 @@ a {
 }
 
 .navbar {
-  background-color: #4A636D;
-  color: white;
+  background-color: white;
+  color: #4A636D;
 }
 
 
 .nav-link {
-  color: white;
+  color: #4A636D;
   font-weight: 600;
 }
 

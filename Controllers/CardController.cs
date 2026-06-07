@@ -91,13 +91,12 @@ namespace projekt_mtg.Controllers
 
             if(scryfallCard == null)
             {
-                ModelState.AddModelError("", "Card was not found");
+                ModelState.AddModelError(nameof(vm.CardName), $"The card could not be found");
                 return View(vm);
             }
 
             //does card already exist? No -> create new card
-            var card = await _context.Cards
-                .FirstOrDefaultAsync(c => c.Name == scryfallCard.Name);
+            var card = await _context.Cards.FirstOrDefaultAsync(c => c.Name == scryfallCard.Name);
 
             if(card == null)
             {
@@ -118,10 +117,7 @@ namespace projekt_mtg.Controllers
 
             //adds card to collection and checks t osee if the card is already there. If yes, update collection instead of creating another row with the same card
             //in other words, updates quantities instead of creating duplicate row
-            var currentCollection = await _context.Collections
-                .FirstOrDefaultAsync(c =>
-                    c.CardId == card.Id &&
-                    c.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var currentCollection = await _context.Collections.FirstOrDefaultAsync(c =>c.CardId == card.Id &&c.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier));
 
 
             if(currentCollection == null)
@@ -250,12 +246,12 @@ namespace projekt_mtg.Controllers
 
 
         //search for card, matches card name with data from Scryfall
-        [HttpGet]
-        public async Task<IActionResult> SearchCardNames(string query)
-        {
-            var results = await _scryfallService.SearchCards(query);
+        // [HttpGet]
+        // public async Task<IActionResult> SearchCardNames(string query)
+        // {
+        //     var results = await _scryfallService.SearchCards(query);
 
-            return Json(results);
-        }
+        //     return Json(results);
+        // }
     }
 }

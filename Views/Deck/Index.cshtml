@@ -8,16 +8,6 @@
 <main class="main-cards">
     <h1>My Decks</h1>
 
-    @* <div class="search-field">
-        <form method="get">
-            <label for="searchString">Search:</label>
-            <br />
-            <input class="form-input" type="text" id="searchString" name="searchString" />
-            <br />
-            <button class="general-button button crud-button" id="search-button" type="submit">Search</button>
-        </form>
-    </div> *@
-
     <div class="button-group">
         <a class="green-button add-deck-button button" asp-action="Create">Create a Deck</a>
     </div>
@@ -30,10 +20,10 @@
             <article>
                 <div class="card-info">
                     
-                    <p class="card-name">@item.Name</p>
+                    <a class="card-name" asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
 
                     <div class="card-buttons">
-                        <a class="add-deck-card-button update-button button" asp-action="Details" asp-route-id="@item.Id">Add card</a>
+                        <a class="add-deck-card-button update-button button" asp-action="Details" asp-route-id="@item.Id">View</a>
                         <a class="update-button button" asp-action="Edit" asp-route-id="@item.Id">Update</a>
                         <a class="remove-button button" asp-action="Delete" asp-route-id="@item.Id">Remove</a>
                     </div>

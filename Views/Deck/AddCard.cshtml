@@ -4,7 +4,7 @@
 
 <h1>Add Card to Deck</h1>
 
-<form asp-actino="AddCard" method="post">
+<form asp-action="AddCard" method="post">
     <input type="hidden" name="deckId" value="@ViewBag.DeckId"/>
 
     
@@ -31,5 +31,5 @@
 </form>
 
 <div class="form-group button-group">
-    <a class="general-button button" id="back-button" asp-action="Details">Back to List</a>
+    <a class="general-button button" id="back-button" asp-action="Details" asp-route-id="@ViewBag.DeckId">Back to List</a>
 </div>

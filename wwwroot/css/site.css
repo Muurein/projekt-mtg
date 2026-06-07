@@ -13,6 +13,24 @@ h1 {
   text-align: center;
 }
 
+.intro {
+  text-align: center;
+}
+
+.navbar {
+    background-color: white !important;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: #4A636D !important;
+}
+
+footer p {
+  color: white !important;
+  text-align: center;
+}
+
 /*******************************************************************************************************************************************
   SEARCH FIELD
 *******************************************************************************************************************************************/

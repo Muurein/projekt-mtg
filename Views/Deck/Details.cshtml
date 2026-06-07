@@ -9,7 +9,7 @@
 
     <div class="deck-info">
         <h2>@Model.Name</h2>
-        <p>@Model.Format</p>
+        <p><strong>@Model.Format</strong></p>
         <a class="green-button button add-deck-card-button" asp-action="AddCard" asp-route-deckId="@Model.Id">Add Card</a>
         <div class="form-group button-group">
             <a class="general-button button" id="back-button" asp-action="Index">Back to List</a>
@@ -45,6 +45,18 @@
                     {
                         <p>Commander</p>
                     }
+                </div>
+
+                <div class="card-buttons">
+                    <form asp-action="RemoveCard" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <input type="hidden"
+                            name="deckCardId"
+                            value="@item.Id" />
+
+                        <button class="remove-button button" type="submit">Remove</button>
+                    </form>
                 </div>
             </article>
         }
