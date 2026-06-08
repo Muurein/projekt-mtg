@@ -76,7 +76,7 @@ namespace projekt_mtg.Controllers
         //creates new collection entry
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CardId,UserId,OwnedQuantity,WishlistQuantity,InDeckQuantity")] Collection collection)
+        public async Task<IActionResult> Create([Bind("Id,OwnedQuantity,WishlistQuantity,InDeckQuantity")] Collection collection)
         {
             if (ModelState.IsValid)
             {
